@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" lang="ja">
+　<head>
+　　　<!-- 見た目用にBootstrapを使う -->
+　　　<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+　　　<script src="../static/js/common/angular.js"></script>
+　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+　　　<script src="../static/js/app.js"></script>
+    <title></title>
+  </head>
+
+　<body class="container">
+    <div ng-controller="AppController">
+      <div>
+        <h1>登録フォーム</h1>
+        <form method="post" action="/add/" ng-submit="submit()" >
+            <!-- {% csrf_token %} -->
+          <div class="form-group">
+            <label for="username">ユーザー名</label>
+            <input type="text" class="form-control" name="userName" id="username" placeholder="ユーザー名を入力" ng-model="username">
+            <br/>
+            <label for="password">パスワード</label>
+            <input type="text" class="form-control" name="passWord" id="password" placeholder="パスワードを入力" ng-model="password">
+          </div>
+          <button type="submit" class="btn btn-primary">登録</button>
+        </form>
+      </div>
+      <hr>
+      <div>
+        <h1>ユーザー一覧</h1>
+        <span ng-if="users.length === 0">ユーザーが一人も登録されていません</span>
+        <ul>
+          <li style="padding: 5px" ng-repeat="user in users">
+              <a href="{$user.url$}" target="_blank">{$user.username$}</a>
+              <button type="button" class="btn btn-xs btn-danger" ng-click="deleteUser($index)">x</button>
+          </li>
+        </ul>
+      </div>
+        <div>
+            <table style="color: green" border="2">
+                <tr>
+                    <td>ユーザー名</td>
+                    <td>PassWord</td>
+                </tr>
+                {% for userinfo in userinfos %}
+                    <tr>
+                        <td>{{userinfo.userName}}</td>
+                        <td>{{userinfo.passWord}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+  </body>
+</html>
