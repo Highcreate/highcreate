@@ -19,6 +19,6 @@ from homepage import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',views.index),
-    path('add/', views.add),
+    path('index/', views.index, name='index'),
+    path('add/', views.add, name='add'),
 ]
