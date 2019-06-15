@@ -15,16 +15,17 @@
     <div ng-controller="AppController">
       <div>
         <h1>登録フォーム</h1>
-        <form method="post" action="/add/" ng-submit="submit()" >
+        <form method="post" action="/add/">
             <!-- {% csrf_token %} -->
           <div class="form-group">
             <label for="username">ユーザー名</label>
-            <input type="text" class="form-control" name="userName" id="username" placeholder="ユーザー名を入力" ng-model="username">
+            <input type="text" class="form-control" name="userName" placeholder="ユーザー名を入力" ng-model="username">
             <br/>
             <label for="password">パスワード</label>
-            <input type="text" class="form-control" name="passWord" id="password" placeholder="パスワードを入力" ng-model="password">
+            <input type="text" class="form-control" name="passWord" placeholder="パスワードを入力" ng-model="password">
           </div>
-          <button type="submit" class="btn btn-primary">登録</button>
+          <button class="btn btn-primary">登録</button>
+          <button type="button" class="btn btn-primary" ng-click="addlink()">リンク追加</button>
         </form>
       </div>
       <hr>
