@@ -11,7 +11,7 @@ app.controller('AppController', function($scope) {
     // ユーザー一覧（空の配列で初期化）
     $scope.users = [];
     // 登録を押されたときの関数
-    $scope.submit = function() {
+    $scope.addlink = function() {
         console.log('1', $scope.username);
       // 空だったら何もしない
       if (!$scope.username) return;
@@ -21,7 +21,8 @@ app.controller('AppController', function($scope) {
         url: '//twitter.com/' + $scope.username
       });
       // 登録完了したらINPUTを空にしておく
-      //scope.username =  '';
+      //$scope.username =  '';
+      //$scope.password =  '';
     };
     // ユーザー一覧からユーザーを削除
     $scope.deleteUser = function(index) {
