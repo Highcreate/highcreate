@@ -1,17 +1,229 @@
 <!DOCTYPE html>
 
 <html ng-app="myApp" lang="ja">
-　<head>
-　　　<!-- 見た目用にBootstrapを使う -->
-　　　<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
-　　　<script src="../static/js/common/angular.js"></script>
-　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
-　　　<script src="../static/js/app.js"></script>
+	<head>
+		<!-- 見た目用にBootstrapを使う -->
+		<link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
+		<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+		<script src="../static/js/common/angular.js"></script>
+		<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+		<script src="../static/js/app.js"></script>
     <title></title>
   </head>
 
-　<body class="container">
+
+	<body>
+	<nav id="hc-globalnav">
+		<div class="hc-gn-content">
+			<ul class="hc-gn-list">
+				<li class="hc-gn-item">
+					<a class="hc-gn-link" href="/jp/" data-analytics-title="HighCreate" >
+							<span class="hc-gn-link-text">HighCreate</span>
+						</a>
+				</li>
+				<li class="hc-gn-item ">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/mac/" data-analytics-title="会社情報">
+							<span class="hc-gn-link-text">会社情報</span>
+						</a>
+				</li>
+				<li class="hc-gn-item ">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/ipad/" data-analytics-title="事業内容">
+							<span class="hc-gn-link-text">事業内容</span>
+						</a>
+				</li>
+				<li class="hc-gn-item ">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/iphone/" data-analytics-title="採用情報">
+							<span class="hc-gn-link-text">採用情報</span>
+						</a>
+				</li>
+				<li class="hc-gn-item ">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/watch/" data-analytics-title="社員心声">
+							<span class="hc-gn-link-text">社員心声</span>
+						</a>
+				</li>
+				<li class="hc-gn-item">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/tv/" data-analytics-title="問い合わせ">
+							<span class="hc-gn-link-text">問い合わせ</span>
+						</a>
+				</li>
+				<li class="hc-gn-item">
+					<a class="hc-gn-link hc-gn-link-mac" href="/jp/music/" data-analytics-title="アクセス">
+							<span class="hc-gn-link-text">アクセス</span>
+						</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="main  with-0 with-1 with-2" role="main">
+		<section data-module-template="promos">
+			<div  data-unit-id="ios-13" >
+				<div class="unit-copy-wrapper">
+					<img src="../static/pic/compaypic.png">
+				</div>
+			</div>
+			<div data-unit-id="ipados">
+
+				<div class="unit-copy-wrapper">
+					<br class="large-hide medium-show">
+					<br class="large-hide medium-show">
+					<br class="large-hide medium-show">
+					<h5 class="subhead" role="presentation">
+株式会社ハイクリエイトはお客様にシステム開発、受託請負開発を中心としたITサ－ビスを提供し続け、努力、改善を惜しまず、 より強固な関係を築き上げ、さらなる発展を目指しております。 また、より価値あるサ－ビスを提供するため、弊社の技術や ノウハウだけでなく、新しいテクノロジーを生み出す努力をし続けます。
+現在、日本のIT社会では、革新的なイノベーションが繰り広げられており、弊社は社会と共に成長し、グローバル社会で 活躍できる人の育成、その企業であり続けることを目指し、一層の努力を惜しまず、邁進してまいります。
+					</h5>
+
+				</div>
+			</div>
+		</section>
+			<section class="homepage-section  standalone-module" data-analytics-region="iphone-promo" data-module-template="iphone-promo" data-analytics-activitymap-region-id="iphone-promo">
+
+					<div class="iphone-promo-background" data-analytics-section-engagement="name:iphone-promo">
+						<div class="section-content">
+
+							<h2 class="headline">対象となるあなたのiPhoneを<wbr><span class="nowrap">下取りに</span>出すと、<br class="small-hide">新しい<wbr><span class="nowrap">iPhoneが</span><wbr><span class="nowrap">最大</span><span role="text" class="nowrap">31,120円</span><span class="nowrap">割引に</span><wbr><span class="nowrap">なります<span class="footnote footnote-alt">*</span>。</span></h2>
+							<h3 class="subhead small-expand">あなたのiPhoneには、あなたが思う以上の価値が<wbr><span class="nowrap">ある</span><wbr><span class="nowrap">かも</span>しれません。<wbr><span class="nowrap">下取り額を</span><wbr><span class="nowrap">知りたい</span><br class="large-hide medium-hide"><wbr><span class="nowrap">場合は、</span><br class="medium-hide"><wbr><span class="nowrap">お近くの</span>Apple&nbsp;Store、<wbr><span class="nowrap">または</span>あなたが利用中の<wbr><span class="nowrap">通信</span>事業者へ<wbr><span class="nowrap">どうぞ。</span><wbr><span class="nowrap">およその</span><br class="large-hide medium-hide"><wbr><span class="nowrap">下取り額を</span><br class="medium-hide">今すぐ<wbr><span class="nowrap">確認</span><wbr><span class="nowrap">する</span><wbr><span class="nowrap">ことも</span><wbr><span class="nowrap">できます。</span><wbr><span class="nowrap">下取り額は</span>予告なく変更<wbr><span class="nowrap">される</span>場合があります。</h3>
+
+				<div class="cta-links">
+													<a href="/jp/iphone/trade-in/" target="_self" data-analytics-region="buy" aria-label="下取りについてさらに詳しく" data-analytics-title="Learn more about trade in" class="more">下取り額を調べる</a>
+				</div>
+						</div>
+					</div>
+
+			</section>
+			<section class="homepage-section  collection-module" data-analytics-region="hero" data-module-template="heroes" data-analytics-activitymap-region-id="hero">
+
+							<div class="hero iphone-xr hero-iphone-xr" data-unit-id="iphone-xr" data-analytics-section-engagement="name:hero-iphone-xr">
+
+
+
+									<div class="unit-wrapper" tabindex="0">
+
+
+											<a href="/jp/iphone-xr/" target="_self" data-analytics-region="learn more" class="unit-link" aria-hidden="true" tabindex="-1">
+												&nbsp;
+											</a>
+
+
+										<div class="unit-copy-wrapper">
+
+														<h2 class="headline logo-image logo-image-iphone-xr-logo-hero"><span class="visuallyhidden">iPhone X R</span></h2>
+
+
+														<h3 class="subhead" role="presentation">
+														オールスクリーンのデザイン。iPhoneで最も長い
+														<wbr><span class="nowrap">バッテリー</span>
+														駆動時間。
+														<br class="exclude-small">
+														最も速い
+														<wbr><span class="nowrap">
+														パフォーマンス。</span><wbr><span class="nowrap">そして、</span><wbr><span class="nowrap">スタジオ品質の写真。</span></h3>
+
+
+
+											<div class="cta-links">
+																		<a href="/jp/iphone-xr/" target="_self" data-analytics-region="learn more" aria-label="iPhone X Rについてさらに詳しく" data-analytics-title="Learn more about iPhone X R" class="more">さらに詳しく</a>
+																		<a href="/jp/shop/goto/buy_iphone/iphone_xr" target="_self" data-analytics-region="buy" aria-label="iPhone X Rを購入" data-analytics-title="Buy iPhone X R" class="more">購入</a>
+											</div>
+										</div>
+
+
+											<div class="unit-image-wrapper">
+												<figure class="unit-image unit-image-iphone-xr-main"></figure>
+											</div>
+
+
+									</div>
+
+							</div>
+							<div class="hero iphone-xs hero-iphone-xs" data-unit-id="iphone-xs" data-analytics-section-engagement="name:hero-iphone-xs">
+
+
+
+									<div class="unit-wrapper" tabindex="0">
+
+
+											<a href="/jp/iphone-xs/" target="_self" data-analytics-region="learn more" class="unit-link" aria-hidden="true" tabindex="-1">
+												&nbsp;
+											</a>
+
+
+										<div class="unit-copy-wrapper">
+
+														<h2 class="headline logo-image logo-image-iphone-xs-logo-hero"><span class="visuallyhidden">iPhone X S</span></h2>
+
+
+														<h3 class="subhead" role="presentation">最も大きなSuper&nbsp;Retinaディスプレイ。A12&nbsp;Bionicがもたらす<br class="exclude-small">最も速い<wbr><span class="nowrap">パフォーマンス。</span>Face&nbsp;IDによる最も安全な<wbr><span class="nowrap">顔認証。</span><br class="exclude-small">そして、<wbr><span class="nowrap">深度コントロール</span>を<wbr><span class="nowrap">備えた</span><wbr><span class="nowrap">画期的な</span><wbr><span class="nowrap">デュアル</span><wbr><span class="nowrap">カメラシステム。</span></h3>
+
+
+
+											<div class="cta-links">
+																		<a href="/jp/iphone-xs/" target="_self" data-analytics-region="learn more" aria-label="iPhone X Sについてさらに詳しく" data-analytics-title="Learn more about iPhone X S" class="more">さらに詳しく</a>
+																		<a href="/jp/shop/goto/buy_iphone/iphone_xs" target="_self" data-analytics-region="buy" aria-label="Buy iPhone X S" data-analytics-title="Buy iPhone X S" class="more">購入</a>
+											</div>
+										</div>
+
+
+											<div class="unit-image-wrapper">
+												<figure class="unit-image unit-image-iphone-xs-main"></figure>
+											</div>
+
+
+									</div>
+
+							</div>
+							<div class="hero mac-pro hero-mac-pro" data-unit-id="mac-pro" data-analytics-section-engagement="name:hero-mac-pro">
+
+
+
+									<div class="unit-wrapper" tabindex="0">
+
+
+											<a href="/jp/mac-pro/" target="_self" data-analytics-region="learn more" class="unit-link" aria-hidden="true" tabindex="-1">
+												&nbsp;
+											</a>
+
+
+										<div class="unit-copy-wrapper">
+
+														<h2 class="headline">Mac Pro</h2>
+
+
+														<h3 class="subhead" role="presentation">すべてを変えるパワー。<span class="jp-headline-adjust"></span></h3>
+
+
+
+											<div class="cta-links">
+																		<a href="/jp/mac-pro/" target="_self" data-analytics-region="learn more" aria-label="Mac Proについてさらに詳しく" data-analytics-title="Learn more about Mac Pro" class="more">さらに詳しく</a>
+																<a href="/jp/mac-pro/#modal" target="_self" data-analytics-region="learn more" data-analytics-click="prop3:mac pro notify me" aria-label="Mac Proに関する最新ニュースを受け取る" data-analytics-title="Send me the latest news about Mac Pro" class="more">最新情報を受け取る</a>
+											</div>
+										</div>
+
+
+											<div class="unit-image-wrapper">
+												<figure class="unit-image unit-image-mac-pro-hero"></figure>
+											</div>
+
+
+									</div>
+
+								<div class="module-modal modal-notify-content content">
+									<div class="modal-notify-wrapper">
+											<div class="violator violator-notify-modal typography-notify-modal-violator">この秋、登場</div>
+											<h2 id="modal-notify-headline" class="notify-headline typography-headline medium-11 medium-centered">Mac Proの発売情報を、<span class="jp-headline-adjust xsmall-hide"></span><br class="xsmall-hide">誰よりも早く。<span class="jp-headline-adjust xsmall-hide"></span></h2>
+											<p class="notify-intro medium-11 medium-centered typography-notify-modal-intro">ご希望の方に最新情報をEメールまたは<br class="xsmall-hide">プッシュ通知でお届けします<a href="#footnote-notify" class="footnote">*</a>。</p>
+											<iframe class="iframe-notify" data-lazy-src="https://swdlp.apple.com/iframes/124/ja_jp/124_ja_jp.html" scrolling="no" title="Notify me"></iframe>
+											<p class="sosumi" id="footnote-notify" tabindex="-1">* Mac Proの発売に関する最新情報がある場合、<br>AppleがEメールまたはプッシュ通知を送信します。</p>
+									</div>
+								</div>
+
+							</div>
+
+			</section>
+
+	</main>
+
+	
     <div ng-controller="AppController">
       <div>
         <h1>登録フォーム</h1>
