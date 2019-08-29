@@ -1,0 +1,10 @@
+/*!
+ */
+
+.hs-form * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0
+}
