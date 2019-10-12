@@ -122,7 +122,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-   /*  -webkit-align-items: flex-stretch;
+    /*  -webkit-align-items: flex-stretch;
     -webkit-box-align: flex-stretch;
     -ms-flex-align: flex-stretch;
     align-items: flex-stretch;*/
@@ -1011,6 +1011,38 @@
     }
 }
 
+.hmzMdC {
+    margin-bottom: 1rem;
+    width: 100%;
+    position: relative;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width:992px) {
+    .hmzMdC {
+        width: 100%;
+        margin-right: 6.5rem;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width:576px) {
+    .hmzMdC {
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        padding-left: 6.5rem;
+        padding-right: 6.5rem;
+    }
+}
+
+@media( min-width:992px) {
+    .hmzMdC {
+        padding-top: 0rem;
+    }
+}
+
 
 /* sc-component-id: HeaderTout__ToutImage-n9auz1-0 */
 
@@ -1048,21 +1080,6 @@
         margin: 0px;
     }
 }
-
-
-/* 
-@media (min-width: 576px) {
-    .csiyej {
-        padding-top: 16%;
-    }
-}
-
-@media (min-width: 992px) {
-    .csiyej {
-        padding-top: 5rem;
-    }
-}
-*/
 
 
 /* sc-component-id: Mantel__Container-sc-90mahe-0 */
@@ -1462,7 +1479,7 @@
 
 @media (min-width: 992px) {
     .fgaZYB {
-        background: url(../pic/work_with_us_landing-desktop.jpg) center center / cover no-repeat;
+        background: url(../pic/work_with_us_landing-desktop.jpg) center top / 100% no-repeat;
     }
 }
 
@@ -1475,6 +1492,38 @@
 @media (min-width: 1200px) {
     .fgaZYB {
         margin: 0px;
+        padding-top: 5rem;
+    }
+}
+
+.ZEFeP {
+    padding-bottom: 2.5rem;
+    padding-top: 20%;
+    overflow: hidden;
+    margin: -1.5rem -1.5rem 0px;
+    background: url(../pic/Employee_Voice-desktop.jpg) center top / 100% no-repeat;
+}
+
+@media (min-width: 321px) {
+    .ZEFeP {
+        background: url(../pic/Employee_Voice-mobile-2x.jpg) center top / 100% no-repeat;
+    }
+}
+
+@media (min-width: 576px) {
+    .ZEFeP {
+        padding-top: 16%;
+    }
+}
+
+@media (min-width: 992px) {
+    .ZEFeP {
+        background: url(../pic/Employee_Voice-desktop.jpg) center top / 100% no-repeat;
+    }
+}
+
+@media (min-width: 992px) {
+    .ZEFeP {
         padding-top: 5rem;
     }
 }

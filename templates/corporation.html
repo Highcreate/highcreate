@@ -1,178 +1,170 @@
-{% extends 'base.html' %}
-
-{% block title %}会社情報 | HighCreate{%endblock%}
-
-{% block content %}
-        <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 hCxXTg" id="site-content">
-            <div class="Mantel__Container-sc-90mahe-0 loqmwU">
-                <div class=" px-3">
-                    <header>
-                        <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                            会社概要</h1>
-                        <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
-                        </div>
-                    </header>
+{% extends 'base.html' %} {% block title %}会社情報 | HighCreate{%endblock%} {% block content %}
+<div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 hCxXTg" id="site-content" ng-controller="ScrollController" data-ng-init="init('{{jumpflag}}')">
+    <div id="company-profile" class="Mantel__Container-sc-90mahe-0 loqmwU">
+        <div class=" px-3">
+            <header>
+                <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                    会社概要</h1>
+                <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
                 </div>
+            </header>
+        </div>
+    </div>
+    <div class="mx-auto max-w-3xl pt-0 pb-7-2 lg:py-8-2">
+        <div class=" lg:flex lg:items-center">
+            <div class="Tout__ToutImage-sc-1t2r4oi-0 hmzMdb">
+                <a class="no-underline w-full">
+                    <img src="../static/pic/corporation_building.jpg" alt="corporation building image" class="block w-full">
+                </a>
             </div>
-            <div class="mx-auto max-w-3xl pt-0 pb-7-2 lg:py-8-2">
-                <div class=" lg:flex lg:items-center">
-                    <div class="Tout__ToutImage-sc-1t2r4oi-0 hmzMdb">
-                        <a class="no-underline w-full">
-                            <img src="/highcreate/homepage/static/pic/corporation_building.jpg" alt="corporation building image" class="block w-full">
-                        </a>
-                    </div>
-                    <div>
-                        <div class="mb-2">
-                            <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
-                                会社名：株式会社ハイクリエイト
-                            </h2>
-                        </div>
-                        <div class="mb-2">
-                            <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
-                                英文社名：HighCreate Co., Ltd.
-                                <span style="font-size:0"></span>
-                                <br> 代表取締役社長：金城　浩（金　洪星）
-                                <span style="font-size:0"></span>
-                                <br> 資本金&nbsp;&nbsp;&nbsp;：500万円
-                                <span style="font-size:0"></span>
-                                <br> 住所&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：〒103-0026
-                                <span style="font-size:0"></span>
-                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;東京都中央区日本橋兜町17-2
-                                <span style="font-size:0"></span>
-                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;兜町第六葉山ビル4F
-                                <span style="font-size:0"></span>
-                                <br> 連絡先&nbsp;&nbsp;&nbsp;：
-                                <span style="font-size:0"></span>
-                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEL:03-4296-3547
-                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAX:03-4296-3547
-                            </p>
-                        </div>
-                    </div>
+            <div>
+                <div class="mb-2">
+                    <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
+                        会社名：株式会社ハイクリエイト
+                    </h2>
+                </div>
+                <div class="mb-2">
+                    <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
+                        英文社名：HighCreate Co., Ltd.
+                        <span style="font-size:0"></span>
+                        <br> 代表取締役社長：金城　浩（金　洪星）
+                        <span style="font-size:0"></span>
+                        <br> 資本金&nbsp;&nbsp;&nbsp;：500万円
+                        <span style="font-size:0"></span>
+                        <br> 住所&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：〒103-0026
+                        <span style="font-size:0"></span>
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;東京都中央区日本橋兜町17-2
+                        <span style="font-size:0"></span>
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;兜町第六葉山ビル4F
+                        <span style="font-size:0"></span>
+                        <br> 連絡先&nbsp;&nbsp;&nbsp;：
+                        <span style="font-size:0"></span>
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEL:03-4296-3547
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAX:03-4296-3547
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 bSuUXH" id="site-content2">
-            <div class="Mantel__Container-sc-90mahe-0 csiyej">
-                <div class="Mantel__Container-sc-90mahe-0 loqmwV">
-                    <div class="px-3">
-                        <div>
-                            <div class="">
-                                <header>
-                                    <h1 class="font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                                        沿革
-                                    </h1>
-                                    <div class="h-px bg-magenta mx-auto" style="width: 100px;">
-                                    </div>
-                                </header>
+    </div>
+</div>
+<div id="history" class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 bSuUXH" id="site-content2">
+    <div class="Mantel__Container-sc-90mahe-0 csiyej">
+        <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+            <div class="px-3">
+                <div>
+                    <div class="">
+                        <header>
+                            <h1 class="font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                                沿革
+                            </h1>
+                            <div class="h-px bg-magenta mx-auto" style="width: 100px;">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-                <div class="mx-auto max-w-xl my-0 lg:my-4 pt-2">
-                    <div class="flex">
-                        <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
-                            2016年4月1日</div>
-                        <div class=" border-l-2 border-magenta relative pl-4 pb-6">
-                            <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
-                            </div>
-                            <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
-                                株式会社ハイクリエイト設立 </a>
-                            <a class="text-xl-3 lg:text-xl ">
-                                <br>株式会社ハイクリエイトを東京都中央区日本橋に設立
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
-                            2016年4月1日</div>
-                        <div class=" border-l-2 border-magenta relative pl-4 pb-6">
-                            <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
-                            </div>
-                            <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
-                                特定派遣資格取得</a>
-                            <a class="text-xl-3 lg:text-xl ">
-                                <br>労働者派遣事業：許可番号 特xx-xxxxxx
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
-                            2016年4月1日</div>
-                        <div class=" border-l-2 border-magenta relative pl-4 pb-6">
-                            <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
-                            </div>
-                            <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
-                                IT事業スタート</a>
-                            <a class="text-xl-3 lg:text-xl ">
-                                <br>システムエンジニアリング事業、
-                                <br>システム開発・保守・運用事業をスタート
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
-                            2018年10月1日</div>
-                        <div class=" border-l-2 border-magenta relative pl-4 pb-6">
-                            <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
-                            </div>
-                            <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
-                                    一般労働者派遣事業許可取得</a>
-                            <a class="text-xl-3 lg:text-xl ">
-                                <br>特定労働者派遣事業から一般労働者派遣事業への切替を実施しました。
-                                <br>労働者派遣事業： 許可番号 派 xx-xxxxxx
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
-                            2018年11月09日</div>
-                        <div class=" border-l-2 border-magenta relative pl-4 pb-6">
-                            <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
-                            </div>
-                            <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
-                                    プライバシーマーク取得</a>
-                            <a class="text-xl-3 lg:text-xl ">
-                                <br>審査合格年月日：平成30年10月26日
-                                <br>登録番号：第xxxxxxxx(01)号
-                                <br>プライバシーマーク使用期間：
-                                <br> 平成30年11月9日～平成32年11月7日
-                            </a>
-                        </div>
+                        </header>
                     </div>
                 </div>
             </div>
         </div>
         <br>
-        <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 kCTuQI" id="site-content3">
-            <div class="Mantel__Container-sc-90mahe-0 loqmwW">
-                <div class="px-3">
-                    <div>
-                        <div class="">
-                            <header>
-                                <h1 class="font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                                    経営理念
-                                </h1>
-                                <div class="h-px bg-magenta mx-auto" style="width: 100px;">
-                                </div>
-                            </header>
-                        </div>
+
+        <div class="mx-auto max-w-xl my-0 lg:my-4 pt-2">
+            <div class="flex">
+                <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
+                    2016年4月1日</div>
+                <div class=" border-l-2 border-magenta relative pl-4 pb-6">
+                    <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
                     </div>
+                    <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
+                                株式会社ハイクリエイト設立 </a>
+                    <a class="text-xl-3 lg:text-xl ">
+                        <br>株式会社ハイクリエイトを東京都中央区日本橋に設立
+                    </a>
                 </div>
             </div>
-            <div class="max-w-xl mx-auto py-2">
-                <div class="WysiwygContent__StyledContent-ew9ouo-0 iFMhFo">
-                    <div>
-                        <p>株式会社ハイクリエイトはお客様にシステム開発、受託請負開発を中心としたITサ－ビスを提供し続け、努力、改善を惜しまず、 より強固な関係を築き上げ、さらなる発展を目指しております。 また、より価値あるサ－ビスを提供するため、弊社の技術や ノウハウだけでなく、新しいテクノロジーを生み出す努力をし続けます。 現在、日本のIT社会では、革新的なイノベーションが繰り広げられており、弊社は社会と共に成長し、グローバル社会で 活躍できる人の育成、その企業であり続けることを目指し、一層の努力を惜しまず、邁進してまいります。</p>
-                        <br>
-                        <p>『社員一人ひとりの個性を尊重し、技術や経験、英知等を集結して 常にお客様のニーズに応えられる会社でありたい』
-                            <br>それが当社のモットーです。</p>
-                        <br>
-                        <p>お客様のニーズを第一に考え、お客様にとって最適なサービスを提供します。
-                        </p>
+            <div class="flex">
+                <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
+                    2016年4月1日</div>
+                <div class=" border-l-2 border-magenta relative pl-4 pb-6">
+                    <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
                     </div>
+                    <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
+                                特定派遣資格取得</a>
+                    <a class="text-xl-3 lg:text-xl ">
+                        <br>労働者派遣事業：許可番号 特xx-xxxxxx
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
+                    2016年4月1日</div>
+                <div class=" border-l-2 border-magenta relative pl-4 pb-6">
+                    <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
+                    </div>
+                    <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
+                                IT事業スタート</a>
+                    <a class="text-xl-3 lg:text-xl ">
+                        <br>システムエンジニアリング事業、
+                        <br>システム開発・保守・運用事業をスタート
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
+                    2018年10月1日</div>
+                <div class=" border-l-2 border-magenta relative pl-4 pb-6">
+                    <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
+                    </div>
+                    <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
+                                    一般労働者派遣事業許可取得</a>
+                    <a class="text-xl-3 lg:text-xl ">
+                        <br>特定労働者派遣事業から一般労働者派遣事業への切替を実施しました。
+                        <br>労働者派遣事業： 許可番号 派 xx-xxxxxx
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" pr-3 uppercase font-sans text-dark-grey-2 text-sm tracking-wide flex-no-shrink w-36">
+                    2018年11月09日</div>
+                <div class=" border-l-2 border-magenta relative pl-4 pb-6">
+                    <div class=" absolute pin-l bg-magenta rounded-full" style="width: 8px; height: 8px; margin-left: -5px;">
+                    </div>
+                    <a class=" text-dark-grey-2 font-sans font-bold leading-tight text-black no-underline text-xl-2 lg:text-2xl ">
+                                    プライバシーマーク取得</a>
+                    <a class="text-xl-3 lg:text-xl ">
+                        <br>審査合格年月日：平成30年10月26日
+                        <br>登録番号：第xxxxxxxx(01)号
+                        <br>プライバシーマーク使用期間：
+                        <br> 平成30年11月9日～平成32年11月7日
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<br>
+<div id="management-philosophy" class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 kCTuQI" id="site-content3">
+    <div class="Mantel__Container-sc-90mahe-0 loqmwW">
+        <div class="px-3">
+            <header>
+                <h1 class="font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                    経営理念
+                </h1>
+                <div class="h-px bg-magenta mx-auto" style="width: 100px;">
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="max-w-xl mx-auto py-2">
+        <div class="WysiwygContent__StyledContent-ew9ouo-0 iFMhFo">
+            <div>
+                <p>株式会社ハイクリエイトはお客様にシステム開発、受託請負開発を中心としたITサ－ビスを提供し続け、努力、改善を惜しまず、 より強固な関係を築き上げ、さらなる発展を目指しております。 また、より価値あるサ－ビスを提供するため、弊社の技術や ノウハウだけでなく、新しいテクノロジーを生み出す努力をし続けます。 現在、日本のIT社会では、革新的なイノベーションが繰り広げられており、弊社は社会と共に成長し、グローバル社会で 活躍できる人の育成、その企業であり続けることを目指し、一層の努力を惜しまず、邁進してまいります。</p>
+                <br>
+                <p>『社員一人ひとりの個性を尊重し、技術や経験、英知等を集結して 常にお客様のニーズに応えられる会社でありたい』
+                    <br>それが当社のモットーです。</p>
+                <br>
+                <p>お客様のニーズを第一に考え、お客様にとって最適なサービスを提供します。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

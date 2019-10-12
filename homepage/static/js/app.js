@@ -3,31 +3,9 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
 });
-
-app.controller('AppController', function($scope) {
-
-    $scope.username = '';
-
-    $scope.users = [];
-
-    $scope.addlink = function() {
-        console.log('1', $scope.username);
-
-        if (!$scope.username) return;
-
-        $scope.users.push({
-            username: $scope.username,
-            url: '//twitter.com/' + $scope.username
-        });
-
-        //$scope.username =  '';
-        //$scope.password =  '';
-    };
-
-    $scope.deleteUser = function(index) {
-        $scope.users.splice(index, 1);
-    };
-});
+app.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+}]);
 app.controller('HeaderController', function($scope, $location, $anchorScroll) {
     $scope.list1 = "";
     $scope.list2 = "hidden";
@@ -39,35 +17,29 @@ app.controller('HeaderController', function($scope, $location, $anchorScroll) {
         $scope.list1 = "";
         $scope.list2 = "hidden";
     };
-
-    $scope.gotomap = function(id) {
-        // set the location.hash to the id of
-        // the element you wish to scroll to.
-        $location.url('index.html');
-        //$location.absUrl() == 'C:/Users/z64113zz/Desktop/test/realsase2/'
-        //$location.path('/index.html');
-
-
+    $scope.gotoBottom = function(id) {
         var ed = $location.hash();
         $location.hash(id);
         $anchorScroll();
         $location.hash(ed);
     };
-
 });
-
 
 app.controller('ScrollController', function($scope, $location, $anchorScroll) {
-
+    $scope.init = function(id) {
+        var ed = $location.hash();
+        $location.hash(id);
+        $anchorScroll();
+        $location.hash(ed);
+    };
     $scope.gotoBottom = function(id) {
-        // set the location.hash to the id of
-        // the element you wish to scroll to.
         var ed = $location.hash();
         $location.hash(id);
         $anchorScroll();
         $location.hash(ed);
     };
 });
+
 app.directive("scroll", function($window) {
     return function($scope) {
         angular.element($window).bind("scroll", function() {
@@ -76,23 +48,46 @@ app.directive("scroll", function($window) {
                 $scope.leftenter1 = "left-enter";
                 $scope.centerenter1 = "center-enter";
                 $scope.rightenter1 = "right-enter";
-                //console.log(this.pageYOffset);
             } else if (this.pageYOffset >= 1000 && this.pageYOffset < 1500) {
                 $scope.frame2 = "fade-in";
                 $scope.leftenter2 = "left-enter";
                 $scope.centerenter2 = "center-enter";
                 $scope.rightenter2 = "right-enter";
-               // console.log(this.pageYOffset);
             } else if (this.pageYOffset >= 1500) {
                 $scope.frame3 = "fade-in";
                 $scope.leftenter3 = "left-enter";
                 $scope.centerenter3 = "center-enter";
                 $scope.rightenter3 = "right-enter";
-                //console.log(this.pageYOffset);
-            } else {
-                //console.log(this.pageYOffset);
             }
             $scope.$apply();
         });
+    };
+});
+
+app.controller('footerController', function($scope, $location, $anchorScroll) {
+    $scope.gotoBottom = function(id) {
+        var ed = $location.hash();
+        $location.hash(id);
+        $anchorScroll();
+        $location.hash(ed);
+    };
+});
+
+app.controller('Ctrl', function($scope, $http) {
+    $scope.sendMail = function() {
+        if ($scope.hsForm.$invalid != true) {
+            $http.post('/SendMail/', {
+                fromemail: $scope.user.email,
+                company: $scope.user.company + ' from ' + $scope.user.name,
+                text: $scope.user.message
+            }).then(res => {
+                $scope.user.email = "";
+                $scope.user.company = "";
+                $scope.user.name = "";
+                $scope.user.message = "";
+                $scope.sendmailresult = "メールを送信しました。";
+            });
+        }
+        $scope.sendmailresult = "";
     };
 });

@@ -1,34 +1,85 @@
-{% extends 'base.html' %}
-
-{% block title %}お問い合わせ| HighCreate{%endblock%}
-
-{% block content %}
-        <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 bSuUXH" id="site-content">
-            <div class="Mantel__Container-sc-90mahe-0 fgaZYB">
-                <div class=" px-3">
-                    <div>
-                        <div class="">
-                            <header>
-                                <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                                    お問い合わせ</h1>
-                                <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
-                                </div>
-                            </header>
+{% extends 'base.html' %} {% block title %}お問い合わせ| HighCreate{%endblock%} {% block content %}
+<div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 bSuUXH" id="site-content">
+    <div id="contactus" class="Mantel__Container-sc-90mahe-0 fgaZYB">
+        <div class=" px-3">
+            <div>
+                <div class="">
+                    <header>
+                        <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                            お問い合わせ</h1>
+                        <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
                         </div>
-                    </div>
-                </div>
-                <div class=" text-lg leading-normal text-dark-grey-2 text-center font-sans font-light px-4 max-w-lg mx-auto mt-4 Mantel__ContentContainer-sc-90mahe-1 llKnNz">
-                    <a href="mailto:info@highcreate.biz">info@highcreate.biz</a>に電子メールを送信してください。
-                    <br>または、以下のフォームに記入してください。
-                </div>
-                <div class="max-w-xl mx-auto ">
-                    <div>
-                        <div id="hubspotForm">
-                            <iframe id="hs-form-iframe-0" class="hs-form-iframe" scrolling="no" height="587" width="768" style="position: static; border: none; display: block; overflow: hidden; width: 768px; height: 587px;" src="/saved_resource/">
-                            </iframe>
-                        </div>
-                    </div>
+                    </header>
                 </div>
             </div>
         </div>
+        <div class=" text-lg leading-normal text-dark-grey-2 text-center font-sans font-light px-4 max-w-lg mx-auto mt-4 Mantel__ContentContainer-sc-90mahe-1 llKnNz">
+            <a href="mailto:info@highcreate.co.jp">info@highcreate.co.jp</a>に電子メールを送信してください。
+            <br>または、以下のフォームに記入してください。
+        </div>
+        <div class="max-w-xl mx-auto " style="padding-left: 100px; padding-top: 50px;">
+            <div class="hbspt-form" id="hbspt-form">
+                <form accept-charset="UTF-8" name="hsForm" class="hs-form stacked hs-form-private " ng-controller="Ctrl">
+                    <div class="hs_email hs-email hs-fieldtype-text field hs-form-field">
+                        <label id="label-email" class="" placeholder="Enter your Email" for="email">
+                                                <span >メールアドレス (必須)</span>
+                                                <span class="hs-form-required">*</span>
+                                            </label>
+                        <legend class="hs-field-desc"></legend>
+                        <div class="input">
+                            <input class="hs-input" type="email" name="fromemail" ng-model="user.email" ng-required="true">
+                        </div>
+                    </div>
+                    <div class="hs_firstname hs-firstname hs-fieldtype-text field hs-form-field">
+                        <label id="label-firstname" class="" placeholder="Enter your name" for="firstname">
+                                                <span >お名前 (必須)</span>
+                                                <span class="hs-form-required" >*</span>
+                                            </label>
+                        <legend class="hs-field-desc" style="display:none;"></legend>
+                        <div class="input">
+                            <input class="hs-input" type="text" name="firstname" ng-model="user.name" ng-required="true">
+                        </div>
+                    </div>
+                    <div class="hs_company hs-company hs-fieldtype-text field hs-form-field">
+                        <label placeholder="Enter your Company name">
+                                                <span >件名(必須)</span>
+                                                <span class="hs-form-required" >*</span>
+                                            </label>
+                        <legend class="hs-field-desc" style="display:none;"></legend>
+                        <div class="input">
+                            <input class="hs-input" type="text" name="company" ng-model="user.company" ng-required="true">
+                        </div>
+                    </div>
+                    <div class="hs_message hs-message hs-fieldtype-textarea field hs-form-field">
+                        <label placeholder="Enter your Message">
+                                                <span >メッセージ本文(必須)</span>
+                                                <span class="hs-form-required">*</span>
+                                            </label>
+                        <legend class="hs-field-desc" style="display:none;"></legend>
+                        <div class="input">
+                            <textarea class="hs-input" name="message" ng-model="user.message" ng-required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="legal-consent-container">
+                        <div class="hs-richtext">
+                            弊社は、お客様の情報保護の重要性に鑑みて、
+                            <br>業務に従事する全ての者がその責任を認識し、
+                            <br>個人情報保護に関する法律（個人情報保護法）
+                            <br>その他の関連法令・ガイドラインを遵守して個人情報を適正に取り扱い、
+                            <br>安全管理について適切な措置を講じます。
+                        </div>
+                    </div>
+                    <div class="hs_submit hs-submit">
+                        <div class="hs-field-desc"></div>
+                        <div class="actions">
+                            <input type="submit" value="送信" class="hs-button primary large" ng-click="sendMail()">
+                        </div>
+                        <div>{$sendmailresult$}</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
 {% endblock %}

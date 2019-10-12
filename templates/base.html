@@ -3,16 +3,19 @@
 <html ng-app="myApp" lang="ja" data-react-helmet="lang" class="ng-scope">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-2022-JP">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="fragment" content="!" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- 見た目用にBootstrapを使う -->
-    <link rel="stylesheet" type="text/css" href="/highcreate/homepage/static/css/index_main.css">
-    <link rel="stylesheet" type="text/css" href="/highcreate/homepage/static/css/index_sub.css">
-    <!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
-    <script src="/highcreate/homepage/static/js/common/angular.js"></script>
-    <!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
-    <script src="/highcreate/homepage/static/js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/index_main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/index_sub.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/contact_main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/contact_sub.css">
+    <link rel="shortcut icon" href="../static/pic/favicon.ico" />
+    <link rel="bookmark" href="../static/pic/favicon.ico" type="image/x-icon" 　/>
+    <script src="../static/js/common/angular.js"></script>
+    <script src="../static/js/app.js"></script>
+
     <title>{% block title %}Home | HighCreate{% endblock %}</title>
 </head>
 
@@ -21,7 +24,7 @@
         <header class="fall-in bg-white header-shadow relative z-10 ng-scope" id="site-header" ng-controller="HeaderController">
             <div class="flex justify-between px-2 py-2 max-w-5xl mx-auto lg:py-0">
                 <a aria-current="page" class="text-charcoal max-w-xxs flex flex-grow items-center" href="../">
-                    <img class="flex-grow fill-current" src="/highcreate/homepage/static/pic/compaypic.png">
+                    <img class="flex-grow fill-current" src="../static/pic/compaypic.png">
                 </a>
                 <nav class=" relative hidden mx-auto lg:flex justify-center">
                     <div class="Header__LinkWrap-mwzqop-0 hmFiIx">
@@ -32,13 +35,13 @@
                             <div class="meganav-shadow bg-white flex items-stretch">
                                 <div class="w-2/3 flex-no-shrink flex flex-col border-r border-light-grey-2">
                                     <div class="pt-5 pl-7 pb-4">
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Corporation/">
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" {{profileLink}}>
 		                                会社概要
 		                              </a>
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Corporation/">
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" {{historyLink}}>
 		                                沿革
 		                              </a>
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Corporation/">
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" {{philosophyLink}}>
 		                                経営理念
 		                              </a>
                                     </div>
@@ -47,7 +50,7 @@
                                             <a class="mr-4 no-underline" href="/Contactus/">
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
                                                   <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
-                                                    問い合わせ
+                                                    お問い合わせ
                                                   </div>
                                                   <svg width="15" height="12" viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
                                                     <g class="fill-current" fill-rule="evenodd">
@@ -57,7 +60,7 @@
                                                   </svg>
                                                 </button>
                                             </a>
-                                            <a class="no-underline" href="../">
+                                            <a class="no-underline" {{accessLink}}>
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
                                                   <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
                                                     アクセス
@@ -77,7 +80,7 @@
                                     <div class="">
                                         <div class=" ">
                                             <a class="HeaderTout__ToutImage-n9auz1-0 fMtCSl" href="/Corporation/">
-                                                <img src="/highcreate/homepage/static/pic/architecture.jpg" alt="社歴は浅くとも活気と勢いある会社です。" class="block w-full"></a>
+                                                <img src="../static/pic/architecture.jpg" alt="社歴は浅くとも活気と勢いある会社です。" class="block w-full"></a>
                                             <div class="p-4">
                                                 <a class="no-underline mb-2" href="/Corporation/">
                                                     <h1 class="font-sans  text-base  font-light  text-dark-grey-2  leading-normal  mb-2  hover:underline  hover:text-magenta ">
@@ -116,10 +119,10 @@
                             <div class="meganav-shadow bg-white flex items-stretch">
                                 <div class="w-2/3 flex-no-shrink flex flex-col border-r border-light-grey-2">
                                     <div class="pt-5 pl-7 pb-4">
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Business/">
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" {{engineeringLink}}>
                                     システムエンジニアリング
 		                              </a>
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Business/">
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" {{developmentLink}}>
                                     システム開発・保守・運用
 		                              </a>
                                     </div>
@@ -128,7 +131,7 @@
                                             <a class="mr-4 no-underline" href="/Contactus/">
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
-		                                        問い合わせ
+		                                        お問い合わせ
 		                                      </div>
 		                                      <svg width="15" height="12"   viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
 		                                        <g class="fill-current" fill-rule="evenodd">
@@ -140,7 +143,7 @@
 		                                      </svg>
 		                                    </button>
                                             </a>
-                                            <a class="no-underline" href="../">
+                                            <a class="no-underline" {{accessLink}}>
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
 		                                        アクセス
@@ -162,7 +165,7 @@
                                     <div class="">
                                         <div class=" ">
                                             <a class="HeaderTout__ToutImage-n9auz1-0 fMtCSl" href="/Business/">
-                                                <img src="/highcreate/homepage/static/pic/team.jpg" alt="お客様の立場でサポートを提供します。" class="block w-full">
+                                                <img src="../static/pic/team.jpg" alt="お客様の立場でサポートを提供します。" class="block w-full">
                                             </a>
                                             <div class="p-4">
                                                 <a class="no-underline mb-2" href="/Business/">
@@ -214,7 +217,7 @@
                                             <a class="mr-4 no-underline" href="/Contactus/">
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
-		                                        問い合わせ
+		                                        お問い合わせ
 		                                      </div>
 		                                      <svg width="15" height="12"   viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
 		                                        <g class="fill-current" fill-rule="evenodd">
@@ -224,7 +227,7 @@
 		                                      </svg>
 		                                    </button>
                                             </a>
-                                            <a class="no-underline" href="../">
+                                            <a class="no-underline" {{accessLink}}>
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
 		                                        アクセス
@@ -243,8 +246,8 @@
                                 <div class="w-1/3 flex-no-shrink flex flex-col bg-light-grey-1 pb-2">
                                     <div class="">
                                         <div class=" ">
-                                            <a class="HeaderTout__ToutImage-n9auz1-0 fMtCSl"  href="/Workwithus/">
-                                                <img src="/highcreate/homepage/static/pic/handshake.jpg" alt="私たちに加入しませんか？" class="block w-full">
+                                            <a class="HeaderTout__ToutImage-n9auz1-0 fMtCSl" href="/Workwithus/">
+                                                <img src="../static/pic/handshake.jpg" alt="私たちに加入しませんか？" class="block w-full">
                                             </a>
                                             <div class="p-4">
                                                 <a class="no-underline mb-2" href="/Workwithus/">
@@ -275,18 +278,18 @@
                         </div>
                     </div>
                     <div class="Header__LinkWrap-mwzqop-0 hmFiIx">
-                        <a class="block  font-sans  text-sm  text-black  uppercase  tracking-wide  no-underline  mx-2  py-4  border-b-2  border-white nav-link__item" href="/resources">
-		                社員心声
+                        <a class="block  font-sans  text-sm  text-black  uppercase  tracking-wide  no-underline  mx-2  py-4  border-b-2  border-white nav-link__item" href="/Employee/">
+		                最新情報
 		              </a>
                         <div class="mega-nav__wrap">
                             <div class="meganav-shadow bg-white flex items-stretch">
                                 <div class="w-2/3 flex-no-shrink flex flex-col border-r border-light-grey-2">
                                     <div class="pt-5 pl-7 pb-4">
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/resources/">
-		                                News
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline mb-4" href="/Employee/">
+                                        2019年度見学会
 		                              </a>
-                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline " href="/resources/">
-		                                Security
+                                        <a class="block  font-sans  font-bold  uppercase  text-base  leading-none  text-black  no-underline  hover:underline " href="/Employee/">
+		                                過去インベンド
 		                              </a>
                                     </div>
                                     <div class="mt-auto">
@@ -294,7 +297,7 @@
                                             <a class="mr-4 no-underline" href="/Contactus/">
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
-		                                        問い合わせ
+		                                        お問い合わせ
 		                                      </div>
 		                                      <svg width="15" height="12"   viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
 		                                        <g class="fill-current" fill-rule="evenodd">
@@ -304,7 +307,7 @@
 		                                      </svg>
 		                                    </button>
                                             </a>
-                                            <a class="no-underline" href="../">
+                                            <a class="no-underline" {{accessLink}}>
                                                 <button class=" flex items-baseline cursor-pointer  text-white">
 		                                      <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
 		                                        アクセス
@@ -321,13 +324,18 @@
                                     </div>
                                 </div>
                                 <div class="w-1/3 flex-no-shrink flex flex-col bg-light-grey-1 pb-2">
-                                    <div class="pl-4 pr-4 pt-5 pb-3">
-                                    <div class="w-full pl-4 pr-4 pt-0 pb-3">
-                                        <a class="no-underline" href="/resources/">
-                                            <button class=" flex items-baseline cursor-pointer  text-charcoal hover:text-magenta">
+                                    <div class=" ">
+                                        <a class="HeaderTout__ToutImage-n9auz1-0 fMtCSl" href="/Workwithus/">
+                                            <img src="../static/pic/travel.jpg" alt=" See More News" class="block w-full">
+                                        </a>
+                                        <div class="pl-4 pr-4 pt-5 pb-3">
+
+                                            <div class="w-full pl-4 pr-4 pt-0 pb-3">
+                                                <a class="no-underline" href="/Employee/">
+                                                    <button class=" flex items-baseline cursor-pointer  text-charcoal hover:text-magenta">
 		                                  <div class=" mr-1 font-sans leading-none text-sm tracking-wide  text-sm TextButton__ButtonText-gzf3ck-0 iiXONu">
 		                                    <span class="font-black">
-		                                      See More News
+		                                      もっと見る
 		                                    </span>
 		                                  </div>
 		                                  <svg width="15"  height="12" viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
@@ -337,22 +345,23 @@
 		                                    </g>
 		                                  </svg>
 		                                </button>
-                                        </a>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                     <div class="Header__LinkWrap-mwzqop-0 hmFiIx">
                         <a class="block  font-sans  text-sm  text-black  uppercase  tracking-wide  no-underline  mx-2  py-4  border-b-2  border-white nav-link__item" href="/Contactus/">
-		                問い合わせ
+		                お問い合わせ
 		              </a>
                     </div>
                     <div class="Header__LinkWrap-mwzqop-0 hmFiIx">
-                        <a class="block  font-sans  text-sm  text-black  uppercase  tracking-wide  no-underline  mx-2  py-4  border-b-2  border-white nav-link__item" href="../">
-		                アクセス
-		              </a>
+                        <a class="block  font-sans  text-sm  text-black  uppercase  tracking-wide  no-underline  mx-2  py-4  border-b-2  border-white nav-link__item" {{accessLink}}>
+                  アクセス
+                </a>
                     </div>
                 </nav>
                 <div class="max-w-xxs w-full flex items-center justify-end">
@@ -372,35 +381,35 @@
                       </svg>
                     </div>
                 </div>
-                </div>
-                <div class="lg:hidden {$list2$}">
-                    <nav class="p-2  flex  flex-col ">
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Corporation/">
+            </div>
+            <div class="lg:hidden {$list2$}">
+                <nav class="p-2  flex  flex-col ">
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Corporation/">
                       会社情報
                     </a>
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Business/">
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Business/">
                       事業内容
                     </a>
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Workwithus/">
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Workwithus/">
                       採用情報
                     </a>
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/resources">
-                      社員心声
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Employee/">
+                      最新情報
                     </a>
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Contactus/">
-                      問い合わせ
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="/Contactus/">
+                      お問い合わせ
                     </a>
-                        <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " href="../">
+                    <a class="text-base  font-light  font-sans  uppercase  py-2  text-charcoal  no-underline " {{accessLink}}>
                       アクセス
                     </a>
-                    </nav>
-                </div>
+                </nav>
+            </div>
         </header>
 
-		{% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
         <div id="footer">
-            <footer class=" footer-gradient mt-6 lg:mt-9 relative z-10 " id="site-footer">
+            <footer class=" footer-gradient mt-6 lg:mt-9 relative z-10 " id="site-footer" ng-controller="footerController">
                 <div class=" max-w-5xl mx-auto lg:px-9 lg:pt-9 px-5 pt-6 pb-6 ">
                     <div class="lg:flex">
                         <div class=" flex flex-wrap lg:flex-auto lg:mr-auto xl:flex-no-wrap ">
@@ -408,13 +417,13 @@
                                 <div class=" font-sans font-bold text-white uppercase text-sm mb-4">
                                     会社情報
                                 </div>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Corporation/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{profileLink}}>
 		                    会社概要
 		                  </a>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Corporation/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{historyLink}}>
 		                    沿革
 		                  </a>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Corporation/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{philosophyLink}}>
 		                    経営理念
 		                  </a>
                             </div>
@@ -422,10 +431,10 @@
                                 <div class=" font-sans font-bold text-white uppercase text-sm mb-4">
                                     事業内容
                                 </div>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Business/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{engineeringLink}}>
                           システムエンジニアリング
 		                    </a>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Business/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{developmentLink}}>
                           システム開発・保守・運用
 		                    </a>
                             </div>
@@ -433,22 +442,22 @@
                                 <div class=" font-sans font-bold text-white uppercase text-sm mb-4">
                                     採用情報
                                 </div>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Workwithus/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{workwithusLink}}>
                             採用募集要項
 		                    </a>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Security/">
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" {{securityLink}}>
                                 個人情報保護方針
                                   </a>
                             </div>
                             <div class=" w-full max-w-1/2 mb-4 px-1 lg:w-auto lg:mr-4 lg:max-w-1/3 xl:mb-0 lg:px-0 xl:max-w-none ">
                                 <div class=" font-sans font-bold text-white uppercase text-sm mb-4">
-                                    社員心声
+                                    最新情報
                                 </div>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/resources/">
-		                      News
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Employee/">
+                                  2019年度見学会
 		                    </a>
-                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/resources/">
-		                      Security
+                                <a class=" block font-sans font-bold no-underline text-grey text-sm hover:underline mb-2" href="/Employee/">
+                                  過去インベンド
 		                    </a>
                             </div>
                         </div>
@@ -458,14 +467,14 @@
                                     連絡方法
                                 </div>
                                 <div class="flex flex-col xl:flex-row">
-                                    <a _css="16.25rem" class="sc-bdVaJa dFULcS" href="/Contactus/">
+                                    <a _css="16.25rem" class="sc-bdVaJa dFULcS" {{contactusLink}}>
                                         <button class="ActionButton__Button-gbqb0g-0 jkmOVC">
 		                          <div class=" uppercase leading-tight tracking-wide text-white text-center text-sm font-sans font-black px-4 py-3 lg:px-7 ">
-		                            問い合わせ
+		                            お問い合わせ
 		                          </div>
 		                        </button>
                                     </a>
-                                    <a class="mt-2 xl:ml-2 xl:mt-0" href="../">
+                                    <a class="mt-2 xl:ml-2 xl:mt-0" {{accessLink}}>
                                         <button class="ActionButton__Button-gbqb0g-0 jkmOVC"> 
 		                          <div class=" uppercase leading-tight tracking-wide text-white text-center text-sm font-sans font-black px-4 py-3 lg:px-7 ">
 		                            アクセス
@@ -578,7 +587,8 @@
                 </div>
             </footer>
         </div>
-        </div>
+    </div>
+
 </body>
 
 </html>

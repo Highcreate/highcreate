@@ -71,6 +71,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'highcreate.wsgi.application'
 
+# mail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'mail11.onamae.ne.jp'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info@highcreate.co.jp'
+EMAIL_HOST_PASSWORD = '#jinhongxing123'
+EMAIL_USE_TLS = True
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

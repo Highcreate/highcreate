@@ -1,55 +1,52 @@
-{% extends 'base.html' %}
-
-{% block title %}事業内容 | HighCreate{%endblock%}
-
-{% block content %}
-        <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwF" id="site-content">
-            <div classnames="">
-                <div class="Mantel__Container-sc-90mahe-0 loqmwV">
-                    <header>
-                        <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                            事業内容</h1>
-                        <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
-                        </div>
-                    </header>
-
+{% extends 'base.html' %} {% block title %}事業内容 | HighCreate{%endblock%} {% block content %}
+<div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwF" id="site-content" ng-controller="ScrollController" data-ng-init="init('{{jumpflag}}')">
+    <div classnames="">
+        <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+            <header>
+                <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                    事業内容</h1>
+                <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
                 </div>
-                <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNK">
-                    <div class="mt-7">
-                        <div class="SplitContent__Container-sc-1dexka-0 gkBTGN">
-                            <div class="SplitContent__ImageSide-sc-1dexka-1 gnyCZA">
-                            </div>
-                            <div class="SplitContent__ContentSide-sc-1dexka-2 gxPRiy">
-                                <div class="mb-2">
-                                    <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
-                                        システムエンジニアリング
-                                    </h2>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
-                                        真摯にお客様のニーズに向き合い、システム開発の背景・目的をしっかり理解した上で、個別の案件毎に 企画・設計・開発から、　運用・サポートまで、スキルの高い優秀な人材をタイムリーにご提供いたします。
-                                    </p>
-                                </div>
-                            </div>
+            </header>
+
+        </div>
+        <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNK">
+            <div id="engineering" class="mt-7">
+                <div class="SplitContent__Container-sc-1dexka-0 gkBTGN">
+                    <div class="SplitContent__ImageSide-sc-1dexka-1 gnyCZA">
+                    </div>
+                    <div class="SplitContent__ContentSide-sc-1dexka-2 gxPRiy">
+                        <div class="mb-2">
+                            <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
+                                システムエンジニアリング
+                            </h2>
                         </div>
-                        <div class="SplitContent__Container-sc-1dexka-0 bUwQNj">
-                            <div class="SplitContent__ImageSide-sc-1dexka-1 eAovTo">
-                            </div>
-                            <div class="SplitContent__ContentSide-sc-1dexka-2 gxPRiy">
-                                <div class="mb-2">
-                                    <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
-                                        システム開発・保守・運用
-                                    </h2>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
-                                        当社では、経験豊富なシステムエンジニアがお客様の業務プロセスを分析することで 総合的な視点から最適なシステムの立案と問題解決の実現をサポートすることができます。
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="mb-2">
+                            <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
+                                真摯にお客様のニーズに向き合い、システム開発の背景・目的をしっかり理解した上で、個別の案件毎に 企画・設計・開発から、　運用・サポートまで、スキルの高い優秀な人材をタイムリーにご提供いたします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="development"> </div>
+                <div class="SplitContent__Container-sc-1dexka-0 bUwQNj">
+                    <div class="SplitContent__ImageSide-sc-1dexka-1 eAovTo">
+                    </div>
+                    <div class="SplitContent__ContentSide-sc-1dexka-2 gxPRiy">
+                        <div class="mb-2">
+                            <h2 class="font-sans font-bold text-2xl lg:text-3xl text-charcoal">
+                                システム開発・保守・運用
+                            </h2>
+                        </div>
+                        <div class="mb-2">
+                            <p class="AnimatedHomeSection__SectionP-sc-1982tr7-1 gKwknd-3">
+                                当社では、経験豊富なシステムエンジニアがお客様の業務プロセスを分析することで 総合的な視点から最適なシステムの立案と問題解決の実現をサポートすることができます。
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}

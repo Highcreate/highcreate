@@ -24,8 +24,13 @@ urlpatterns = [
     path('Corporation/', views.corporation, name='corporation'),
     path('Security/', views.security, name='security'),
     path('Workwithus/', views.workwithus, name='workwithus'),
+    path('Employee/', views.Employee, name='Employee'),
     path('Contactus/', views.contactus, name='contactus'),
-    path('saved_resource/', views.saved_resource, name='saved_resource'),
-    path('simpleupload/', views.simple_upload, name='simple_upload'),
-    path('fromupload/', views.model_form_upload, name='model_form_upload'),
+    path('Access/', views.access, name='access'),
+    path('Profile/', views.profile, name='profile'),
+    path('History/', views.history, name='history'),
+    path('Philosophy/', views.philosophy, name='philosophy'),
+    path('Engineering/', views.engineering, name='engineering'),
+    path('Development/', views.development, name='development'),
+    path('SendMail/', views.sendmail, name='sendmail')
 ]
