@@ -8,23 +8,24 @@
     -  inclubInfo
  - column名
    - matuyaId
-     - ID
+     - 名: ID
      - Primary key
      - データ形: int
    - matuyaData
-     - 年月日
+     - 名: 年月日
      - データ形: VARCHAR(0,100)
    - matuyaCategory	
-     - カテゴリ
+     - 名: カテゴリ
      - データ形: VARCHAR(0,100)
    - matuyaTitle
-     - タイトル
+     - 名: タイトル
      - データ形: VARCHAR(0,100)
    - matuyaContact
-     - 宛先
+     - 名: 宛先
      - データ形: VARCHAR(0,100)
+      - 设计有问题 
    - matuyaText
-     - テキスト
+     - 名: テキスト
      - データ形: VARCHAR(0,200)
 
 #### URL
@@ -35,7 +36,7 @@
  - 社内通知編集画面
    	- http://127.0.0.1:8000/detail/1
     - p.s
-      	- http://127.0.0.1:8000/detail/1　1是id编号
+      	- http://127.0.0.1:8000/detail/1　(1是id编号)
 - 全部データ一览画面
   - http://127.0.0.1:8000/detail
 
@@ -76,4 +77,4 @@
       - 与detail不同在于 右侧有编辑
       - 跳转原理: id在url后面追加 更具id查询
   - matuyaadd
-    - データ保存操作
+    - matuyaデータ保存操作
