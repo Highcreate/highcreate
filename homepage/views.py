@@ -241,9 +241,23 @@ def contactus(request):
 
 
 # 对送骨保密画面
-def matuyaindex(request):
+def matuya_index(request):
     inclubInfos = models.inclubInfo.objects.all()
-    return render(request, 'matuyaindex.html', {'inclubinfos': inclubInfos})
+    return render(request, 'matuyaindex.html',
+                  {
+                      'inclubinfos': inclubInfos
+                  }
+                  )
+
+
+# 对送骨保密削除画面
+def matuya_delet(request):
+    inclubInfos = models.inclubInfo.objects.all()
+    return render(request, 'matuyaDelet.html',
+                  {
+                      'inclubinfos': inclubInfos
+                  }
+                  )
 
 
 # 社内通知画面(据库第一个数据显示)
@@ -316,7 +330,7 @@ def sendmail(request):
 
 # 松谷データ保存操作
 @csrf_exempt
-def matuyaadd(request):
+def matuya_add(request):
     matuyaid = request.POST['matuyaId']
     matuyadata = request.POST['matuyaData']
     matuyacategory = request.POST['matuyaCategory']
@@ -337,3 +351,17 @@ def matuyaadd(request):
     inclubInfo.save()
 
     return HttpResponseRedirect("/detail")
+
+
+# 松谷データ削除操作
+@csrf_exempt
+def delet(request):
+    matuyaid = request.POST['matuyaId']
+    inclubInfo = models.inclubInfo()
+    if len(matuyaid) > 0:
+        print("id不是null")
+        inclubInfo.matuyaId = matuyaid;
+
+    inclubInfo.delete()
+
+    return HttpResponseRedirect("/matuyadelet")

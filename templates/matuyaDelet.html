@@ -18,21 +18,25 @@
 <body class="container">
 <div ng-controller="AppController">
     <div>
-        <table style="color: green" border="">
+        <form method="post" action="/delet/">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid">id</label>
+                <input type="text" class="form-control" name="matuyaId" placeholder="id" ng-model="matuyaid">
+            </div>
+            <button class="btn btn-primary">登録</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <table style="color: green" border="2">
             <tr>
-                <td>Id</td>
-                <td>日期</td>
-                <td>カテゴリ</td>
-                <td>タイトル</td>
-                <td>编辑</td>
+                <td>id</td>
             </tr>
             {% for inclubinfo in inclubinfos %}
                 <tr>
                     <td>{{ inclubinfo.matuyaId }}</td>
-                    <td>{{ inclubinfo.matuyaData }}</td>
-                    <td>{{ inclubinfo.matuyaCategory }}</td>
-                    <td>{{ inclubinfo.matuyaTitle }}</td>
-                    <td><a href="/detail/{{ inclubinfo.matuyaId }}">编辑</a></td>
                 </tr>
             {% endfor %}
         </table>
