@@ -82,9 +82,7 @@
     - p.s.
       - 与detail不同在于 右侧有编辑
       - 跳转原理: id在url后面追加 更具id查询
-  - matuya_add
+  - data_add
     - データ保存操作
   - data_delete
     - データ削除操作
-  - matuyaadd
-    - matuyaデータ保存操作

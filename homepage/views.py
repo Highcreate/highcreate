@@ -328,9 +328,9 @@ def sendmail(request):
         })
 
 
-# 松谷データ保存操作
+# データ保存操作
 @csrf_exempt
-def matuya_add(request):
+def data_add(request):
     matuyaid = request.POST['matuyaId']
     matuyadata = request.POST['matuyaData']
     matuyacategory = request.POST['matuyaCategory']
@@ -353,7 +353,7 @@ def matuya_add(request):
     return HttpResponseRedirect("/detail")
 
 
-# 松谷データ削除操作
+# データ削除操作
 @csrf_exempt
 def data_delete(request):
     matuyaid = request.POST['matuyaId']
