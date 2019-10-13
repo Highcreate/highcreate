@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" lang="ja">
+　
+<head>
+    　　　<!-- 見た目用にBootstrapを使う -->
+    　　　
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+    　　　
+    <script src="../../static/js/common/angular.js"></script>
+    　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+    　　　
+    <script src="../../static/js/app.js"></script>
+    <title></title>
+</head>
+
+<body class="container">
+<div ng-controller="AppController">
+    <div>
+        <table style="color: green" border="">
+            <tr>
+                <td>日期</td>
+                <td>カテゴリ</td>
+                <td>タイトル</td>
+                <td>编辑</td>
+
+            </tr>
+            {% for inclubinfo in inclubinfos %}
+                <tr>
+                    <td>{{ inclubinfo.matuyaData }}</td>
+                    <td>{{ inclubinfo.matuyaCategory }}</td>
+                    <td>{{ inclubinfo.matuyaTitle }}</td>
+                    <td><a href="###">编辑</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{#<div class="body-main">#}
+{#            {% for inclubinfo in inclubinfos %}#}
+{#                <div>#}
+{#                    <h2>{{ inclubinfo.matuyaId }}</h2>#}
+{#                    <p>#}
+{#                        {{ inclubinfo.matuyaData }}#}
+{#                    </p>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+
+</body>
+</html>
