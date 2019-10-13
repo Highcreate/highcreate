@@ -240,18 +240,54 @@ def contactus(request):
     })
 
 
-# 松谷作業画面
+# 对送骨保密画面
 def matuyaindex(request):
     inclubInfos = models.inclubInfo.objects.all()
     return render(request, 'matuyaindex.html', {'inclubinfos': inclubInfos})
 
 
-# 松谷データ操作画面
+# 社内通知画面(据库第一个数据显示)
 def content(request):
+    inclubInfos = models.inclubInfo.objects.all()[0]
+    return render(request, 'content.html',
+                  {
+                      'inclubinfos': inclubInfos
+                  }
+                  )
+
+
+# 社内通知画面
+def get_content(request):
     inclubInfos = models.inclubInfo.objects.all()
     return render(request, 'content.html',
                   {
                       'inclubinfos': inclubInfos
+                  }
+                  )
+
+
+# 全てデータ一览画面
+def detail(request):
+    detail_info = models.inclubInfo.objects.all()
+    return render(request, 'detail.html',
+                  {
+                      'detail_info': detail_info
+                  }
+                  )
+
+
+# 社内通知編集画面
+def get_detail(request, matuyaId):
+    inclubInfos = models.inclubInfo.objects.all()
+    detail_info = None
+    for inclubInfo in inclubInfos:
+        if inclubInfo.matuyaId == matuyaId:
+            detail_info = inclubInfo
+            break
+
+    return render(request, 'getdetail.html',
+                  {
+                      'detail_info': detail_info
                   }
                   )
 
@@ -278,7 +314,7 @@ def sendmail(request):
         })
 
 
-# 松谷データ保存
+# 松谷データ保存操作
 @csrf_exempt
 def matuyaadd(request):
     matuyaid = request.POST['matuyaId']
@@ -300,4 +336,4 @@ def matuyaadd(request):
 
     inclubInfo.save()
 
-    return HttpResponseRedirect("/matuyaindex")
+    return HttpResponseRedirect("/detail")

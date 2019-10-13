@@ -20,25 +20,28 @@
     <div>
         <table style="color: green" border="">
             <tr>
-                <td>Id</td>
+                <td>id</td>
                 <td>日期</td>
                 <td>カテゴリ</td>
                 <td>タイトル</td>
-                <td>编辑</td>
-
+                <td>Contact</td>
+                <td>テキスト</td>
             </tr>
-            {% for inclubinfo in inclubinfos %}
+            {% for detail_info in detail_info %}
                 <tr>
-                    <td>{{ inclubinfo.matuyaId }}</td>
-                    <td>{{ inclubinfo.matuyaData }}</td>
-                    <td>{{ inclubinfo.matuyaCategory }}</td>
-                    <td>{{ inclubinfo.matuyaTitle }}</td>
-                    <td><a href="/detail/{{ inclubinfo.matuyaId }}">编辑</a></td>
-
+                    <td>{{ detail_info.matuyaId }}</td>
+                    <td>{{ detail_info.matuyaData }}</td>
+                    <td>{{ detail_info.matuyaCategory }}</td>
+                    <td>{{ detail_info.matuyaTitle }}</td>
+                    <td>{{ detail_info.matuyaContact }}</td>
+                    <td>{{ detail_info.matuyaText }}</td>
                 </tr>
             {% endfor %}
+
         </table>
     </div>
 </div>
+<a href="/content">返回</a>
+
 </body>
 </html>
