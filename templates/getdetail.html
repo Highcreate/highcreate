@@ -47,24 +47,24 @@
                            placeholder={{ detail_info.matuyaId }} ng-model="{{ detail_info.matuyaId }}">
                     <br/>
                     <label for="matuyadata">日期</label>
-                    <input type="text" class="form-control" name="matuyaData"
-                           placeholder={{ detail_info.matuyaData }} ng-model="matuyadata">
+                    <input type="text" class="form-control" name="matuyaData" placeholder="日期"
+                           value="{{ detail_info.matuyaData }}">
                     <br/>
                     <label for="matuyacategory">カテゴリ</label>
                     <input type="text" class="form-control" name="matuyaCategory" placeholder="カテゴリ"
-                           ng-model="matuyacategory">
+                           value="{{ detail_info.matuyaCategory }}">
                     <br/>
                     <label for="matuyatitle">タイトル</label>
                     <input type="text" class="form-control" name="matuyaTitle"
-                           placeholder={{ detail_info.matuyaTitle }} ng-model="matuyatitle">
+                           placeholder="タイトル" value="{{ detail_info.matuyaTitle }}">
                     <br/>
                     <label for="matuyacontact">連絡先</label>
                     <input type="text" class="form-control" name="matuyaContact" placeholder="連絡先"
-                           ng-model="matuyacontact">
+                           value="{{ detail_info.matuyaContact }}">
                     <br/>
                     <label for="matuyatext">テキスト</label>
                     <input type="text" class="form-control" name="matuyaText"
-                           placeholder={{ detail_info.matuyaText }} ng-model="matuyatext">
+                           placeholder="テキスト" value="{{ detail_info.matuyaTitle }}">
                 </div>
                 <button class="btn btn-primary">登録</button>
             </form>
