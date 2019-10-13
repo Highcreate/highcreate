@@ -21,7 +21,7 @@
    - matuyaContact
      - 名: 宛先
      - データ形: VARCHAR(0,100)
-      - 设计有问题 
+      - 设计有问题
    - matuyaText
      - 名: テキスト
      - データ形: VARCHAR(0,200)
@@ -64,7 +64,6 @@
 - matuyaDelete.html 
  
   - 对送骨保密削除画面
-     
 
 
 #### views.py

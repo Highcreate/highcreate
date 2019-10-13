@@ -364,4 +364,4 @@ def data_delete(request):
 
     inclubInfo.delete()
 
-    return HttpResponseRedirect("/matuyadelet")
+    return HttpResponseRedirect("/matuyadelete")
