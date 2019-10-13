@@ -1,37 +1,35 @@
-## Yin
-
+## YinDemoMemo
 
 
 #### DB
-
  - Table名
     -  inclubInfo
  - column名
    - matuyaId
-     - ID
+     - 名: ID
      - Primary key
      - データ形: int
    - matuyaData
-     - 年月日
+     - 名: 年月日
      - データ形: VARCHAR(0,100)
    - matuyaCategory	
-     - カテゴリ
+     - 名: カテゴリ
      - データ形: VARCHAR(0,100)
    - matuyaTitle
-     - タイトル
+     - 名: タイトル
      - データ形: VARCHAR(0,100)
    - matuyaContact
-     - 宛先
+     - 名: 宛先
      - データ形: VARCHAR(0,100)
+      - 设计有问题 
    - matuyaText
-     - テキスト
+     - 名: テキスト
      - データ形: VARCHAR(0,200)
 
-#### URL
 
+#### URL
  - 社内通知画面
    - http://127.0.0.1:8000/content/
-
  - 社内通知編集画面
    - http://127.0.0.1:8000/detail/1
    - p.s
@@ -42,12 +40,11 @@
    - http://127.0.0.1:8000/matuyaindex/ 
  - 削除画面
    - http://127.0.0.1:8000/matuyadelet/
-  
-
+ - 全部データ一览画面
+   - http://127.0.0.1:8000/detail
 
 
 #### HTML
-
 - matuyaindex.html
 
   - 测试用可以添加数据 对送骨保密
@@ -70,9 +67,7 @@
      
 
 
-
 #### views.py
-
 - def
   - matuya_index
     - 对送骨保密画面
@@ -91,3 +86,5 @@
     - データ保存操作
   - delet
     - データ削除操作
+  - matuyaadd
+    - matuyaデータ保存操作
