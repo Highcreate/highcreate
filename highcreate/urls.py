@@ -32,5 +32,8 @@ urlpatterns = [
     path('Philosophy/', views.philosophy, name='philosophy'),
     path('Engineering/', views.engineering, name='engineering'),
     path('Development/', views.development, name='development'),
-    path('SendMail/', views.sendmail, name='sendmail')
+    path('SendMail/', views.sendmail, name='sendmail'),
+    path('matuyaindex/', views.matuyaindex, name='matuyaindex'),
+    path('matuyaadd/', views.matuyaadd, name='matuyaadd'),
+    path('content/', views.content, name='content')
 ]
