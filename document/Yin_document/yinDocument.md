@@ -39,7 +39,7 @@
  - 添加画面
    - http://127.0.0.1:8000/matuyaindex/ 
  - 削除画面
-   - http://127.0.0.1:8000/matuyadelet/
+   - http://127.0.0.1:8000/matuyadelete/
  - 全部データ一览画面
    - http://127.0.0.1:8000/detail
 
@@ -61,7 +61,7 @@
 
   - 社内通知編集demo
   
-- matuyaDelet.html 
+- matuyaDelete.html 
  
   - 对送骨保密削除画面
      
@@ -84,7 +84,7 @@
       - 跳转原理: id在url后面追加 更具id查询
   - matuya_add
     - データ保存操作
-  - delet
+  - data_delete
     - データ削除操作
   - matuyaadd
     - matuyaデータ保存操作

@@ -251,9 +251,9 @@ def matuya_index(request):
 
 
 # 对送骨保密削除画面
-def matuya_delet(request):
+def matuya_delete(request):
     inclubInfos = models.inclubInfo.objects.all()
-    return render(request, 'matuyaDelet.html',
+    return render(request, 'matuyaDelete.html',
                   {
                       'inclubinfos': inclubInfos
                   }
@@ -355,7 +355,7 @@ def matuya_add(request):
 
 # 松谷データ削除操作
 @csrf_exempt
-def delet(request):
+def data_delete(request):
     matuyaid = request.POST['matuyaId']
     inclubInfo = models.inclubInfo()
     if len(matuyaid) > 0:

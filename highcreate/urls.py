@@ -35,9 +35,9 @@ urlpatterns = [
     path('SendMail/', views.sendmail, name='sendmail'),
     path('matuyaindex/', views.matuya_index, name='matuya_index'),
     path('matuyaadd/', views.matuya_add, name='matuya_add'),
-    path('matuyadelet/', views.matuya_delet, name='matuya_delet'),
+    path('matuyadelete/', views.matuya_delete, name='matuya_delete'),
     path('content/', views.get_content),
     path('detail/<int:matuyaId>', views.get_detail),
     path('detail/', views.detail),
-    path('delet/', views.delet)
+    path('delete/', views.data_delete)
 ]
