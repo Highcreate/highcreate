@@ -1,9 +1,7 @@
-## Yin
-
+## YinDemoMemo
 
 
 #### DB
-
  - Table名
     -  inclubInfo
  - column名
@@ -28,8 +26,8 @@
      - 名: テキスト
      - データ形: VARCHAR(0,200)
 
-#### URL
 
+#### URL
  - 社内通知画面
    	- http://127.0.0.1:8000/content/
 
@@ -41,9 +39,7 @@
   - http://127.0.0.1:8000/detail
 
 
-
 #### HTML
-
 - matuyaindex.html
 
   - 测试用可以添加数据 对送骨保密
@@ -61,9 +57,7 @@
   - 社内通知編集demo
 
 
-
 #### views.py
-
 - def
   - matuyaindex
     - 对送骨保密画面
