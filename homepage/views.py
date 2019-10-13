@@ -208,7 +208,8 @@ def Employee(request):
         'developmentLink':developmentHLink ,
         'securityLink':securityHLink ,
         'workwithusLink':workwithusHLink ,
-        'contactusLink':contactusNLink
+        'contactusLink':contactusNLink ,
+        'num': range(10)
         })
 
 #お問い合わせ画面

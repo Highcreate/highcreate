@@ -15,15 +15,17 @@
             <p>美味しい食事をしながら歓談焼肉、疲れを吹き飛ばすように、みんな楽しい笑い声が上がっていました。</p>
             <p></p>
         </div>
+        {% for i in num %}
         <div class="mx-auto max-w-3xl pt-0 pb-7-2 lg:py-8-2">
             <div class="lg:items-center">
                 <div class="Tout__ToutImage-sc-1t2r4oi-0 hmzMdC">
                     <a class="no-underline w-full">
-                        <img src="../static/pic/corporation_building.jpg" alt="corporation building image" class="block w-full">
+                        <img src="../static/event/{{i}}.jpg" alt="corporation building image" class="block w-full">
                     </a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
