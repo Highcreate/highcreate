@@ -43,8 +43,8 @@
                 <!-- {% csrf_token %} -->
                 <div class="form-group">
                     <label for="matuyaid">id</label>
-                    <input type="text" class="form-control" name="matuyaId"
-                           placeholder={{ detail_info.matuyaId }} ng-model="{{ detail_info.matuyaId }}">
+                    <input type="text" class="form-control" readonly="readonly" name="matuyaId"
+                           placeholder={{ detail_info.matuyaId }} value="{{ detail_info.matuyaId }}">
                     <br/>
                     <label for="matuyadata">日期</label>
                     <input type="text" class="form-control" name="matuyaData" placeholder="日期"
