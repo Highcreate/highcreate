@@ -18,21 +18,23 @@
 <body class="container">
 <div ng-controller="AppController">
     <div>
-        <table style="color: green" border="">
-            <tr>
-                <td>Id</td>
+        <table class="table table-bordered ">
+            <tr class="text-center">
+                <td style="width: 4%;">Id</td>
                 <td>日期</td>
                 <td>カテゴリ</td>
                 <td>タイトル</td>
-                <td>编辑</td>
+                <td style="width: 4%;">编辑</td>
             </tr>
             {% for inclubinfo in inclubinfos %}
                 <tr>
-                    <td>{{ inclubinfo.matuyaId }}</td>
+                    <td class="text-center">{{ inclubinfo.matuyaId }}</td>
                     <td>{{ inclubinfo.matuyaData }}</td>
                     <td>{{ inclubinfo.matuyaCategory }}</td>
                     <td>{{ inclubinfo.matuyaTitle }}</td>
-                    <td><a href="/detail/{{ inclubinfo.matuyaId }}">编辑</a></td>
+                    <td class="text-center" >
+                        <a class="btn btn-default btn-xs"  href="/detail/{{ inclubinfo.matuyaId }}">编辑</a>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
