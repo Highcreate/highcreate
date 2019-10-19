@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from homepage import models, forms
 import json
 
+from django.core.paginator import Paginator
+
 # URL遷移
 accessHLink = 'href=/Access/'
 profileHLink = 'href=/Profile/'
@@ -272,20 +274,92 @@ def content(request):
 
 # 社内通知画面
 def get_content(request):
-    inclubInfos = models.inclubInfo.objects.all()
+    page = request.GET.get('page')
+    if page:
+        page = int(page)
+    else:
+        page = 1
+    detail_info = models.inclubInfo.objects.all()
+
+    paginator = Paginator(detail_info, 10)
+    page_num = paginator.num_pages
+    page_article_list = paginator.page(page)
+    if page_article_list.has_next():
+        next_page = page + 1
+    else:
+        next_page = page
+    if page_article_list.has_previous():
+        previous_page = page - 1
+    else:
+        previous_page = page
     return render(request, 'content.html',
                   {
-                      'inclubinfos': inclubInfos
+                      'inclubinfos': page_article_list,
+                      'page_num': range(1, page_num + 1),
+                      'curr_page': page,
+                      'next_page': next_page,
+                      'previous_page': previous_page
+                  }
+                  )
+
+
+# 社内通知画面
+def get_rabkool(request, matuyaId):
+    # inclubInfos = models.inclubInfo.objects.all()
+    inclubInfos = models.inclubInfo.objects.filter(matuyaId=matuyaId)
+
+    rabkool_info = None
+    for inclubInfo in inclubInfos:
+        if inclubInfo.matuyaId == matuyaId:
+            rabkool_info = inclubInfo
+            break
+
+    return render(request, 'rabkool.html',
+                  {
+                      'rabkool_info': rabkool_info
+                  }
+                  )
+
+
+# 全てデータ一览画面
+def rabkool(request, matuyaId):
+    rabkool_info = models.inclubInfo.objects.filter(matuyaId=matuyaId)
+    return render(request, 'rabkool.html',
+                  {
+                      'rabkool_info': rabkool_info
                   }
                   )
 
 
 # 全てデータ一览画面
 def detail(request):
+    page = request.GET.get('page')
+    if page:
+        page = int(page)
+    else:
+        page = 1
+    print(page)
     detail_info = models.inclubInfo.objects.all()
+
+    paginator = Paginator(detail_info, 10)
+    page_num = paginator.num_pages
+    page_article_list = paginator.page(page)
+    if page_article_list.has_next():
+        next_page = page + 1
+    else:
+        next_page = page
+    if page_article_list.has_previous():
+        previous_page = page - 1
+    else:
+        previous_page = page
+
     return render(request, 'detail.html',
                   {
-                      'detail_info': detail_info
+                      'detail_info': page_article_list,
+                      'page_num': range(1, page_num + 1),
+                      'curr_page': page,
+                      'next_page': next_page,
+                      'previous_page': previous_page
                   }
                   )
 

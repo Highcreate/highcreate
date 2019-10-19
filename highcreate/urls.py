@@ -37,6 +37,8 @@ urlpatterns = [
     path('matuyaadd/', views.data_add, name='matuya_add'),
     path('matuyadelete/', views.matuya_delete, name='matuya_delete'),
     path('content/', views.get_content),
+    path('rabkool/<int:matuyaId>', views.get_rabkool),
+    path('rabkool/', views.rabkool),
     path('detail/<int:matuyaId>', views.get_detail),
     path('detail/', views.detail),
     path('delete/', views.data_delete)
