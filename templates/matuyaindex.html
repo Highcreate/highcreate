@@ -46,17 +46,18 @@
     <hr>
 
     <div>
-        <table style="color: green" border="2">
-            <tr>
-                <td>id</td>
-            </tr>
-            {% for inclubinfo in inclubinfos %}
-                <tr>
-                    <td>{{ inclubinfo.matuyaId }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <form method="get" action="/select/" class="form-horizontal">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid" class="col-sm-1 control-label">id</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="matuyaId" placeholder="id" value="">
+                </div>
+                <input type="submit" value="検索">
+            </div>
+        </form>
     </div>
+    <hr>
 
     <div>
         <a href="/matuyaindex/">追加</a>

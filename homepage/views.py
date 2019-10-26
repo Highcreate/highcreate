@@ -255,7 +255,7 @@ def matuya_index(request):
 # 对送骨保密削除画面
 def matuya_delete(request):
     inclubInfos = models.inclubInfo.objects.all()
-    return render(request, 'matuyaDelete.html',
+    return render(request, 'delete.html',
                   {
                       'inclubinfos': inclubInfos
                   }
@@ -303,30 +303,16 @@ def get_content(request):
                   )
 
 
-# 社内通知画面
-def get_rabkool(request, matuyaId):
-    # inclubInfos = models.inclubInfo.objects.all()
-    inclubInfos = models.inclubInfo.objects.filter(matuyaId=matuyaId)
+# 検索
+def select(request):
+    matuyaid = request.GET['matuyaId']
 
-    rabkool_info = None
-    for inclubInfo in inclubInfos:
-        if inclubInfo.matuyaId == matuyaId:
-            rabkool_info = inclubInfo
-            break
+    # id検索
+    user_select = models.inclubInfo.objects.get(matuyaId=matuyaid)
 
-    return render(request, 'rabkool.html',
+    return render(request, 'select.html',
                   {
-                      'rabkool_info': rabkool_info
-                  }
-                  )
-
-
-# 全てデータ一览画面
-def rabkool(request, matuyaId):
-    rabkool_info = models.inclubInfo.objects.filter(matuyaId=matuyaId)
-    return render(request, 'rabkool.html',
-                  {
-                      'rabkool_info': rabkool_info
+                      'user_select': user_select
                   }
                   )
 
@@ -415,7 +401,7 @@ def data_add(request):
     inclubInfo = models.inclubInfo()
     if len(matuyaid) > 0:
         print("id不是null")
-        inclubInfo.matuyaId = matuyaid;
+        inclubInfo.matuyaId = matuyaid
     inclubInfo.matuyaData = matuyadata
     inclubInfo.matuyaCategory = matuyacategory
     inclubInfo.matuyaTitle = matuyatitle
@@ -434,7 +420,7 @@ def data_delete(request):
     inclubInfo = models.inclubInfo()
     if len(matuyaid) > 0:
         print("id不是null")
-        inclubInfo.matuyaId = matuyaid;
+        inclubInfo.matuyaId = matuyaid
 
     inclubInfo.delete()
 
