@@ -366,6 +366,55 @@ def get_detail(request, matuyaId):
                   )
 
 
+# 全てデータ一览画面
+def details(request):
+    page = request.GET.get('page')
+    if page:
+        page = int(page)
+    else:
+        page = 1
+    print(page)
+    detail_info = models.inclubInfo.objects.all()
+
+    paginator = Paginator(detail_info, 10)
+    page_num = paginator.num_pages
+    page_article_list = paginator.page(page)
+    if page_article_list.has_next():
+        next_page = page + 1
+    else:
+        next_page = page
+    if page_article_list.has_previous():
+        previous_page = page - 1
+    else:
+        previous_page = page
+
+    return render(request, 'details.html',
+                  {
+                      'detail_info': page_article_list,
+                      'page_num': range(1, page_num + 1),
+                      'curr_page': page,
+                      'next_page': next_page,
+                      'previous_page': previous_page
+                  }
+                  )
+
+
+# 社内通知編集画面
+def get_details(request, matuyaId):
+    inclubInfos = models.inclubInfo.objects.all()
+    detail_info = None
+    for inclubInfo in inclubInfos:
+        if inclubInfo.matuyaId == matuyaId:
+            detail_info = inclubInfo
+            break
+
+    return render(request, 'getdetails.html',
+                  {
+                      'detail_info': detail_info
+                  }
+                  )
+
+
 @csrf_exempt
 def sendmail(request):
     if request.method == 'POST':

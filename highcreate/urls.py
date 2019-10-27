@@ -40,5 +40,6 @@ urlpatterns = [
     path('select/', views.select),
     path('detail/<int:matuyaId>', views.get_detail),
     path('detail/', views.detail),
+    path('details/<int:matuyaId>', views.get_details),
     path('delete/', views.data_delete)
 ]
