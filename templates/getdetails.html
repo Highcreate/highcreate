@@ -38,28 +38,6 @@
                 </tr>
 
         </table>
-        <div class="boby-footer">
-            <div class="col-md-5 col-md-offset-5">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="?page={{ previous_page }}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        {% for num in page_num %}
-                            <li><a href="?page={{ num }}">{{ num }}</a></li>
-                        {% endfor %}
-                        <li>
-                            <a href="?page={{ next_page }}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-        </div>
     </div>
 
     <div>
