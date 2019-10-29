@@ -18,6 +18,18 @@
 <body class="container">
 <div ng-controller="AppController">
     <div>
+        <form method="post" action="/delete/">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid">id</label>
+                <input type="text" class="form-control" name="matuyaId" placeholder="id" ng-model="matuyaid">
+            </div>
+            <button class="btn btn-primary">削除</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
         <table class="table table-bordered ">
             <tr class="text-center">
                 <td style="width: 4%;">id</td>
@@ -26,6 +38,8 @@
                 <td>タイトル</td>
                 <td>連絡先</td>
                 <td>テキスト</td>
+                <td style="width: 4%;">编辑</td>
+                <td style="width: 4%;">表示</td>
             </tr>
             {% for detail_info in detail_info %}
                 <tr>
@@ -35,6 +49,12 @@
                     <td>{{ detail_info.matuyaTitle }}</td>
                     <td>{{ detail_info.matuyaContact }}</td>
                     <td>{{ detail_info.matuyaText }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-default btn-xs" href="/detail/{{ detail_info.matuyaId }}">编辑</a>
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-default btn-xs" href="/details/{{ detail_info.matuyaId }}">表示</a>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
@@ -58,18 +78,13 @@
                     </ul>
                 </nav>
             </div>
-
         </div>
     </div>
 
     <div>
         <a href="/matuyaindex/">追加</a>
         <br/>
-        <a href="/matuyadelete/">削除</a>
-        <br/>
-        <a href="/detail/">全部データ表示</a>
-        <br/>
-        <a href="/content/">全部データ表示(編集)</a>
+        <a href="/detail/">全部データ表示(編集)</a>
         <br/>
     </div>
 </div>

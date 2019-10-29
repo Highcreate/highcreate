@@ -28,8 +28,6 @@
 
 
 #### URL
- - 社内通知画面
-   - http://127.0.0.1:8000/content/
  - 社内通知編集画面
    - http://127.0.0.1:8000/detail/1
    - p.s
@@ -38,42 +36,29 @@
    - http://127.0.0.1:8000/detail
  - 添加画面
    - http://127.0.0.1:8000/matuyaindex/ 
- - 削除画面
-   - http://127.0.0.1:8000/matuyadelete/
  - 全部データ一览画面
    - http://127.0.0.1:8000/detail
 
 
 #### HTML
-- matuyaindex.html
-
-  - 测试用可以添加数据 对送骨保密
-
 - detail.html
-
   - 全てデータ一览
 
-- content.html
-
-  - 社内通知demo
-
 - getdetail.html
-
-  - 社内通知編集demo
-  
-- matuyaDelete.html 
+  - 社内通知編集
  
-  - 对送骨保密削除画面
+- getdetails.html
+ - 社内通知详细
+ 
+   
+- matuyaindex.html
+  - 测试用可以添加数据
 
 
 #### views.py
 - def
   - matuya_index
     - 对送骨保密画面
-  - matuya_delet
-    - 对送骨保密削除画面
-  - content
-    - 社内通知画面(据库第一个数据显示)
   - detail
     -  全てデータ一览画面
   - get_detail

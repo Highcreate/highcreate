@@ -34,12 +34,10 @@ urlpatterns = [
     path('Development/', views.development, name='development'),
     path('SendMail/', views.sendmail, name='sendmail'),
     path('matuyaindex/', views.matuya_index),
-    path('matuyaadd/', views.data_add),
-    path('matuyadelete/', views.matuya_delete),
-    path('content/', views.get_content),
-    path('select/', views.select),
-    path('detail/<int:matuyaId>', views.get_detail),
     path('detail/', views.detail),
+    path('detail/<int:matuyaId>', views.get_detail),
     path('details/<int:matuyaId>', views.get_details),
-    path('delete/', views.data_delete)
+    path('matuyaadd/', views.data_add),
+    path('delete/', views.data_delete),
+    path('select/', views.select)
 ]

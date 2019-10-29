@@ -242,77 +242,34 @@ def contactus(request):
     })
 
 
+@csrf_exempt
+def sendmail(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        subject = data.get('company', None)
+        message = data.get('text', None)
+        from_email = data.get('fromemail', None)
+        recipient_list = ["info@highcreate.co.jp"]
+        send_mail(subject, message, from_email, recipient_list)
+        return render(request, 'Contact_Us.html', {
+            'accessLink': accessHLink,
+            'profileLink': profileHLink,
+            'historyLink': historyHLink,
+            'philosophyLink': philosophyHLink,
+            'engineeringLink': engineeringHLink,
+            'developmentLink': developmentHLink,
+            'securityLink': securityHLink,
+            'workwithusLink': workwithusHLink,
+            'contactusLink': contactusNLink
+        })
+
+
 # 对送骨保密画面
 def matuya_index(request):
     inclubInfos = models.inclubInfo.objects.all()
     return render(request, 'matuyaindex.html',
                   {
                       'inclubinfos': inclubInfos
-                  }
-                  )
-
-
-# 对送骨保密削除画面
-def matuya_delete(request):
-    inclubInfos = models.inclubInfo.objects.all()
-    return render(request, 'delete.html',
-                  {
-                      'inclubinfos': inclubInfos
-                  }
-                  )
-
-
-# 社内通知画面(据库第一个数据显示)
-def content(request):
-    inclubInfos = models.inclubInfo.objects.all()[0]
-    return render(request, 'content.html',
-                  {
-                      'inclubinfos': inclubInfos
-                  }
-                  )
-
-
-# 社内通知画面
-def get_content(request):
-    page = request.GET.get('page')
-    if page:
-        page = int(page)
-    else:
-        page = 1
-    detail_info = models.inclubInfo.objects.all()
-
-    paginator = Paginator(detail_info, 10)
-    page_num = paginator.num_pages
-    page_article_list = paginator.page(page)
-    if page_article_list.has_next():
-        next_page = page + 1
-    else:
-        next_page = page
-    if page_article_list.has_previous():
-        previous_page = page - 1
-    else:
-        previous_page = page
-    return render(request, 'content.html',
-                  {
-                      'inclubinfos': page_article_list,
-                      'page_num': range(1, page_num + 1),
-                      'curr_page': page,
-                      'next_page': next_page,
-                      'previous_page': previous_page
-                  }
-                  )
-
-
-# 検索
-def select(request):
-    matuyaid = request.GET['matuyaId']
-
-    # id検索
-    user_select = models.inclubInfo.objects.get(matuyaId=matuyaid)
-
-    return render(request, 'select.html',
-                  {
-                      'user_select': user_select
                   }
                   )
 
@@ -366,40 +323,7 @@ def get_detail(request, matuyaId):
                   )
 
 
-# 全てデータ一览画面
-def details(request):
-    page = request.GET.get('page')
-    if page:
-        page = int(page)
-    else:
-        page = 1
-    print(page)
-    detail_info = models.inclubInfo.objects.all()
-
-    paginator = Paginator(detail_info, 10)
-    page_num = paginator.num_pages
-    page_article_list = paginator.page(page)
-    if page_article_list.has_next():
-        next_page = page + 1
-    else:
-        next_page = page
-    if page_article_list.has_previous():
-        previous_page = page - 1
-    else:
-        previous_page = page
-
-    return render(request, 'details.html',
-                  {
-                      'detail_info': page_article_list,
-                      'page_num': range(1, page_num + 1),
-                      'curr_page': page,
-                      'next_page': next_page,
-                      'previous_page': previous_page
-                  }
-                  )
-
-
-# 社内通知編集画面
+# 社内通知详细画面
 def get_details(request, matuyaId):
     inclubInfos = models.inclubInfo.objects.all()
     detail_info = None
@@ -415,29 +339,7 @@ def get_details(request, matuyaId):
                   )
 
 
-@csrf_exempt
-def sendmail(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        subject = data.get('company', None)
-        message = data.get('text', None)
-        from_email = data.get('fromemail', None)
-        recipient_list = ["info@highcreate.co.jp"]
-        send_mail(subject, message, from_email, recipient_list)
-        return render(request, 'Contact_Us.html', {
-            'accessLink': accessHLink,
-            'profileLink': profileHLink,
-            'historyLink': historyHLink,
-            'philosophyLink': philosophyHLink,
-            'engineeringLink': engineeringHLink,
-            'developmentLink': developmentHLink,
-            'securityLink': securityHLink,
-            'workwithusLink': workwithusHLink,
-            'contactusLink': contactusNLink
-        })
-
-
-# データ保存操作
+# データ保存
 @csrf_exempt
 def data_add(request):
     matuyaid = request.POST['matuyaId']
@@ -462,7 +364,7 @@ def data_add(request):
     return HttpResponseRedirect("/detail")
 
 
-# データ削除操作
+# データ削除
 @csrf_exempt
 def data_delete(request):
     matuyaid = request.POST['matuyaId']
@@ -473,4 +375,18 @@ def data_delete(request):
 
     inclubInfo.delete()
 
-    return HttpResponseRedirect("/matuyadelete")
+    return HttpResponseRedirect("/detail")
+
+
+# 検索
+def select(request):
+    matuyaid = request.GET['matuyaId']
+
+    # id検索
+    user_select = models.inclubInfo.objects.get(matuyaId=matuyaid)
+
+    return render(request, 'select.html',
+                  {
+                      'user_select': user_select
+                  }
+                  )
