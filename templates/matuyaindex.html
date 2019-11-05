@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" lang="ja">
+　
+<head>
+    　　　<!-- 見た目用にBootstrapを使う -->
+    　　　
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+    　　　
+    <script src="../../static/js/common/angular.js"></script>
+    　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+    　　　
+    <script src="../../static/js/app.js"></script>
+    <title></title>
+</head>
+
+<body class="container">
+<div ng-controller="AppController">
+    <div>
+        <form method="post" action="/matuyaadd/">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid">id</label>
+                <input type="text" class="form-control" name="matuyaId" placeholder="id" ng-model="matuyaid">
+                <br/>
+                <label for="matuyadata">日期</label>
+                <input type="text" class="form-control" name="matuyaData" placeholder="日期" ng-model="matuyadata">
+                <br/>
+                <label for="matuyacategory">カテゴリ</label>
+                <input type="text" class="form-control" name="matuyaCategory" placeholder="カテゴリ"
+                       ng-model="matuyacategory">
+                <br/>
+                <label for="matuyatitle">タイトル</label>
+                <input type="text" class="form-control" name="matuyaTitle" placeholder="タイトル" ng-model="matuyatitle">
+                <br/>
+                <label for="matuyacontact">連絡先</label>
+                <input type="text" class="form-control" name="matuyaContact" placeholder="連絡先" ng-model="matuyacontact">
+                <br/>
+                <label for="matuyatext">テキスト</label>
+                <input type="text" class="form-control" name="matuyaText" placeholder="テキスト" ng-model="matuyatext">
+            </div>
+            <button class="btn btn-primary">登録</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <form method="get" action="/select/" class="form-horizontal">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid" class="col-sm-1 control-label">id</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="matuyaId" placeholder="id" value="">
+                </div>
+                <input type="submit" value="検索">
+            </div>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <a href="/matuyaindex/">追加</a>
+        <br/>
+        <a href="/detail/">全部データ表示(編集)</a>
+        <br/>
+    </div>
+</div>
+
+</body>
+</html>

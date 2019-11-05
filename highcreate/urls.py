@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from  homepage import views
+from homepage import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +32,12 @@ urlpatterns = [
     path('Philosophy/', views.philosophy, name='philosophy'),
     path('Engineering/', views.engineering, name='engineering'),
     path('Development/', views.development, name='development'),
-    path('SendMail/', views.sendmail, name='sendmail')
+    path('SendMail/', views.sendmail, name='sendmail'),
+    path('matuyaindex/', views.matuya_index),
+    path('detail/', views.detail),
+    path('detail/<int:matuyaId>', views.get_detail),
+    path('details/<int:matuyaId>', views.get_details),
+    path('matuyaadd/', views.data_add),
+    path('delete/', views.data_delete),
+    path('select/', views.select)
 ]

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" lang="ja">
+　
+<head>
+    　　　<!-- 見た目用にBootstrapを使う -->
+    　　　
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+    　　　
+    <script src="../../static/js/common/angular.js"></script>
+    　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+    　　　
+    <script src="../../static/js/app.js"></script>
+    <title></title>
+</head>
+
+<body class="container">
+<div ng-controller="AppController">
+    <div>
+        <table style="color: green" border="">
+            <tr>
+                <td>id</td>
+                <td>日期</td>
+                <td>カテゴリ</td>
+                <td>タイトル</td>
+                <td>Contact</td>
+                <td>テキスト</td>
+            </tr>
+            <tr>
+                <td>{{ detail_info.matuyaId }}</td>
+                <td>{{ detail_info.matuyaData }}</td>
+                <td>{{ detail_info.matuyaCategory }}</td>
+                <td>{{ detail_info.matuyaTitle }}</td>
+                <td>{{ detail_info.matuyaContact }}</td>
+                <td>{{ detail_info.matuyaText }}</td>
+            </tr>
+
+        </table>
+
+        <div>
+            <form method="post" action="/matuyaadd/">
+                <!-- {% csrf_token %} -->
+                <div class="form-group">
+                    <label for="matuyaid">id</label>
+                    <input type="text" class="form-control" readonly="readonly" name="matuyaId"
+                           placeholder={{ detail_info.matuyaId }} value="{{ detail_info.matuyaId }}">
+                    <br/>
+                    <label for="matuyadata">日期</label>
+                    <input type="text" class="form-control" name="matuyaData" placeholder="日期"
+                           value="{{ detail_info.matuyaData }}">
+                    <br/>
+                    <label for="matuyacategory">カテゴリ</label>
+                    <input type="text" class="form-control" name="matuyaCategory" placeholder="カテゴリ"
+                           value="{{ detail_info.matuyaCategory }}">
+                    <br/>
+                    <label for="matuyatitle">タイトル</label>
+                    <input type="text" class="form-control" name="matuyaTitle"
+                           placeholder="タイトル" value="{{ detail_info.matuyaTitle }}">
+                    <br/>
+                    <label for="matuyacontact">連絡先</label>
+                    <input type="text" class="form-control" name="matuyaContact" placeholder="連絡先"
+                           value="{{ detail_info.matuyaContact }}">
+                    <br/>
+                    <label for="matuyatext">テキスト</label>
+                    <input type="text" class="form-control" name="matuyaText"
+                           placeholder="テキスト" value="{{ detail_info.matuyaTitle }}">
+                </div>
+                <button class="btn btn-primary">修正</button>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a href="/matuyaindex/">追加</a>
+        <br/>
+        <a href="/detail/">全部データ表示(編集)</a>
+        <br/>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" lang="ja">
+　
+<head>
+    　　　<!-- 見た目用にBootstrapを使う -->
+    　　　
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
+    　　　
+    <script src="../../static/js/common/angular.js"></script>
+    　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
+    　　　
+    <script src="../../static/js/app.js"></script>
+    <title></title>
+</head>
+
+<body class="container">
+
+
+
+<h2>hello world!</h2>
+<div ng-app="">
+    <input type="text" ng-model="hello"/>
+    <p class="text-danger">hello: {$ hello $}</p>
+</div>
+
+<div ng-controller="AppController">
+    <div>
+        <form method="post" action="/delete/">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="matuyaid">id</label>
+                <input type="text" class="form-control" name="matuyaId" placeholder="id" ng-model="matuyaid">
+            </div>
+            <button class="btn btn-primary">削除</button>
+        </form>
+    </div>
+    <hr>
+
+    <div>
+        <table class="table table-bordered ">
+            <tr class="text-center">
+                <td style="width: 4%;">id</td>
+                <td>日期</td>
+                <td>カテゴリ</td>
+                <td>タイトル</td>
+                <td>連絡先</td>
+                <td>テキスト</td>
+                <td style="width: 4%;">编辑</td>
+                <td style="width: 4%;">表示</td>
+            </tr>
+            {% for detail_info in detail_info %}
+                <tr>
+                    <td class="text-center">{{ detail_info.matuyaId }}</td>
+                    <td>{{ detail_info.matuyaData }}</td>
+                    <td>{{ detail_info.matuyaCategory }}</td>
+                    <td>{{ detail_info.matuyaTitle }}</td>
+                    <td>{{ detail_info.matuyaContact }}</td>
+                    <td>{{ detail_info.matuyaText }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-default btn-xs" href="/detail/{{ detail_info.matuyaId }}">编辑</a>
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-default btn-xs" href="/details/{{ detail_info.matuyaId }}">表示</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="boby-footer">
+            <div class="col-md-5 col-md-offset-5">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="?page={{ previous_page }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% for num in page_num %}
+                            <li><a href="?page={{ num }}">{{ num }}</a></li>
+                        {% endfor %}
+                        <li>
+                            <a href="?page={{ next_page }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a href="/matuyaindex/">追加</a>
+        <br/>
+        <a href="/detail/">全部データ表示(編集)</a>
+        <br/>
+    </div>
+</div>
+</body>
+</html>
