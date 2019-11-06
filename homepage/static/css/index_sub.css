@@ -1262,7 +1262,7 @@
 
 @media (min-width: 992px) {
     .dzVwL {
-        background: url(../pic/who_we_are_landing-desktop.jpg) no-repeat center center;
+        background: url(../pic/who_we_are_landing-desktop.jpg) center top / 100% no-repeat;
     }
 }
 

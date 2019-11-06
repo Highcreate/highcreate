@@ -38,6 +38,4 @@ urlpatterns = [
     path('employinfo/', officeviews.employinfo, name='employinfo'),  
     path('notice/', officeviews.notice, name='notice'),  
     path('workinfo/', officeviews.workinfo, name='workinfo'),  
-    path('simpleupload/', views.simple_upload, name='simple_upload'),
-    path('fromupload/', views.model_form_upload, name='model_form_upload'),
 ]
