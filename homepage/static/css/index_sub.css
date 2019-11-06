@@ -1417,6 +1417,24 @@ dzVwW {
     }
 }
 
+.gxPRiw {
+    padding-left: 2rem;
+    padding-right: .1rem;
+}
+
+@media (min-width: 321px) {
+    .gxPRiw {
+        padding-left: 2rem;
+        padding-right: .1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .gxPRiw {
+        padding-left: 8.125rem;
+        padding-right: .1rem;
+    }
+}
 
 /* sc-component-id:SplitContent__Container-sc-1dexka-0 */
 
