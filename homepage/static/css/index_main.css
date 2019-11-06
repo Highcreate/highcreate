@@ -2917,6 +2917,15 @@ table {
     padding-bottom: .5rem
 }
 
+.py-1-1 {
+    padding-top: 1rem;
+    padding-bottom: .5rem
+}
+
+.py-1-2 {
+    padding-bottom: 1.5rem
+}
+
 .px-1 {
     padding-left: .5rem;
     padding-right: .5rem
