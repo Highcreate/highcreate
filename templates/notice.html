@@ -9,8 +9,16 @@
                     <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
                     </div>
                 </header>
-
             </div>
+            <style>
+                table {
+                    border-collapse: collapse;
+                }
+
+                table, td, th {
+                    border: 1px solid black;
+                }
+            </style>
             <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
                 <div>
                     <table class="table table-bordered ">
@@ -26,7 +34,8 @@
                         </tr>
                         {% for detail_info in detail_info %}
                             <tr>
-                                <td class="text-center">{{ detail_info.matuyaId }}</td>
+                                <td class="text-center">{{ detail_info.userName }}</td>
+                                {#                                等DB table完善后改#}
                                 <td>{{ detail_info.matuyaData }}</td>
                                 <td>{{ detail_info.matuyaCategory }}</td>
                                 <td>{{ detail_info.matuyaTitle }}</td>
