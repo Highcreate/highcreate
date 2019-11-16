@@ -54,6 +54,38 @@ def notice(request):
                   )
 
 
+# 社内通知編集画面
+def get_detail(request, userId):
+    userInfos = models.userInfo.objects.all()
+    detail_info = None
+    for userInfo in userInfos:
+        if userInfo.userId == userId:
+            detail_info = userInfo
+            break
+
+    return render(request, 'getdetail.html',
+                  {
+                      'detail_info': detail_info
+                  }
+                  )
+
+
+# 社内通知详细画面
+def get_details(request, userId):
+    userInfos = models.userInfo.objects.all()
+    detail_info = None
+    for userInfo in userInfos:
+        if userInfo.userId == userId:
+            detail_info = userInfo
+            break
+
+    return render(request, 'getdetails.html',
+                  {
+                      'detail_info': detail_info
+                  }
+                  )
+
+
 # 勤務情報画面
 def workinfo(request):
     return render(request, 'workinfo.html')
