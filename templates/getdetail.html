@@ -1,77 +1,57 @@
-<!DOCTYPE html>
+{% extends 'officebase.html' %} {% block title %}社内通知 | HighCreate{% endblock %} {% block content %}
+    <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwN"
+         id="site-content" ng-controller="ScrollController" data-ng-init="init('{{ jumpflag }}')">
+        <div classnames="">
+            <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+                <header>
+                    <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                        社内通知</h1>
+                    <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
+                    </div>
+                </header>
+            </div>
 
-<html ng-app="myApp" lang="ja">
-　
-<head>
-    　　　<!-- 見た目用にBootstrapを使う -->
-    　　　
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    　　　<!-- AngularJS 1.7.8を公式サイトから引っ張ってくる -->
-    　　　
-    <script src="../../static/js/common/angular.js"></script>
-    　　　<!-- ↓↓↓自分で作ったJavaScriptはここから↓↓↓ -->
-    　　　
-    <script src="../../static/js/app.js"></script>
-    <title></title>
-</head>
+            <style>
+                table {
+                    border-collapse: collapse;
+                }
 
-<body class="container">
-<div ng-controller="AppController">
-    <div>
-        <table style="color: green" border="">
-            <tr>
-                <td>id</td>
-                <td>日期</td>
-                <td>カテゴリ</td>
-                <td>タイトル</td>
-                <td>Contact</td>
-                <td>テキスト</td>
-            </tr>
-            <tr>
-                <td>{{ detail_info.userId }}</td>
-                <td>{{ detail_info.matuyaData }}</td>
-                <td>{{ detail_info.matuyaCategory }}</td>
-                <td>{{ detail_info.matuyaTitle }}</td>
-                <td>{{ detail_info.matuyaContact }}</td>
-                <td>{{ detail_info.matuyaText }}</td>
-            </tr>
-
-        </table>
-
-        <div>
-            <form method="post" action="/matuyaadd/">
-                <!-- {% csrf_token %} -->
-                <div class="form-group">
-                    <label for="matuyaid">id</label>
-                    <input type="text" class="form-control" readonly="readonly" name="userId"
-                           placeholder={{ detail_info.userId }} value="{{ detail_info.userId }}">
-                    <br/>
-                    <label for="matuyadata">日期</label>
-                    <input type="text" class="form-control" name="matuyaData" placeholder="日期"
-                           value="{{ detail_info.matuyaData }}">
-                    <br/>
-                    <label for="matuyacategory">カテゴリ</label>
-                    <input type="text" class="form-control" name="matuyaCategory" placeholder="カテゴリ"
-                           value="{{ detail_info.matuyaCategory }}">
-                    <br/>
-                    <label for="matuyatitle">タイトル</label>
-                    <input type="text" class="form-control" name="matuyaTitle"
-                           placeholder="タイトル" value="{{ detail_info.matuyaTitle }}">
-                    <br/>
-                    <label for="matuyacontact">連絡先</label>
-                    <input type="text" class="form-control" name="matuyaContact" placeholder="連絡先"
-                           value="{{ detail_info.matuyaContact }}">
-                    <br/>
-                    <label for="matuyatext">テキスト</label>
-                    <input type="text" class="form-control" name="matuyaText"
-                           placeholder="テキスト" value="{{ detail_info.matuyaTitle }}">
-                </div>
-                <button class="btn btn-primary">修正</button>
-            </form>
+                table, td, th {
+                    border: 1px solid black;
+                }
+            </style>
+            <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
+                {#                action 内插入方法#}
+                <form method="post" action="/内插入方法/">
+                    <!-- {% csrf_token %} -->
+                    <div class="form-group">
+                        <label for="matuyaid">id</label>
+                        <input type="text" class="form-control" readonly="readonly" name="userId"
+                               placeholder={{ detail_info.userId }} value="{{ detail_info.userId }}">
+                        <br/>
+                        <label for="userdata">日期</label>
+                        <input type="text" class="form-control" name="userData" placeholder="日期"
+                               value="{{ detail_info.userData }}">
+                        <br/>
+                        <label for="usercategory">カテゴリ</label>
+                        <input type="text" class="form-control" name="userCategory" placeholder="カテゴリ"
+                               value="{{ detail_info.userCategory }}">
+                        <br/>
+                        <label for="usertitle">タイトル</label>
+                        <input type="text" class="form-control" name="userTitle"
+                               placeholder="タイトル" value="{{ detail_info.userTitle }}">
+                        <br/>
+                        <label for="usercontact">連絡先</label>
+                        <input type="text" class="form-control" name="useraContact" placeholder="連絡先"
+                               value="{{ detail_info.userContact }}">
+                        <br/>
+                        <label for="usertext">テキスト</label>
+                        <input type="text" class="form-control" name="userText"
+                               placeholder="テキスト" value="{{ detail_info.userTitle }}">
+                    </div>
+                    <button class="btn btn-primary">修正</button>
+                </form>
+            </div>
         </div>
     </div>
-
-
-</div>
-</body>
-</html>
+{% endblock %}

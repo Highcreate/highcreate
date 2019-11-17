@@ -28,7 +28,7 @@ def notice(request):
     else:
         page = 1
     # DB table完善后需要改
-    detail_info = models.userInfo.objects.all()
+    detail_info = models.noticeInfo.objects.all()
 
     # 设置显示多少条信息
     paginator = Paginator(detail_info, 10)
@@ -56,11 +56,11 @@ def notice(request):
 
 # 社内通知編集画面
 def get_detail(request, userId):
-    userInfos = models.userInfo.objects.all()
+    noticeInfos = models.noticeInfo.objects.all()
     detail_info = None
-    for userInfo in userInfos:
-        if userInfo.userId == userId:
-            detail_info = userInfo
+    for noticeInfo in noticeInfos:
+        if noticeInfo.userId == userId:
+            detail_info = noticeInfo
             break
 
     return render(request, 'getdetail.html',
@@ -72,11 +72,11 @@ def get_detail(request, userId):
 
 # 社内通知详细画面
 def get_details(request, userId):
-    userInfos = models.userInfo.objects.all()
+    noticeInfos = models.noticeInfo.objects.all()
     detail_info = None
-    for userInfo in userInfos:
-        if userInfo.userId == userId:
-            detail_info = userInfo
+    for noticeInfo in noticeInfos:
+        if noticeInfo.userId == userId:
+            detail_info = noticeInfo
             break
 
     return render(request, 'getdetails.html',
