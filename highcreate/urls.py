@@ -38,8 +38,8 @@ urlpatterns = [
     path('login/', officeviews.login, name='login'),
     path('employinfo/', officeviews.employinfo, name='employinfo'),
     path('notice/', officeviews.notice, name='notice'),
-    path('notice/<int:userId>', officeviews.get_detail),
-    path('notices/<int:userId>', officeviews.get_details),
+    path('notice/<int:userId>', officeviews.modify_detail),
+    path('detail/<int:userId>', officeviews.detail),
     path('workinfo/', officeviews.workinfo, name='workinfo'),
 ]
 

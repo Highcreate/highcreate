@@ -67,7 +67,7 @@ def notice(request):
 
 
 # 社内通知編集画面
-def get_detail(request, userId):
+def modify_detail(request, userId):
     noticeInfos = models.noticeInfo.objects.all()
     detail_info = None
     for noticeInfo in noticeInfos:
@@ -75,7 +75,7 @@ def get_detail(request, userId):
             detail_info = noticeInfo
             break
 
-    return render(request, 'getdetail.html',
+    return render(request, 'modify_detail.html',
                   {
                       'detail_info': detail_info
                   }
@@ -83,7 +83,7 @@ def get_detail(request, userId):
 
 
 # 社内通知详细画面
-def get_details(request, userId):
+def detail(request, userId):
     noticeInfos = models.noticeInfo.objects.all()
     detail_info = None
     for noticeInfo in noticeInfos:
@@ -91,7 +91,7 @@ def get_details(request, userId):
             detail_info = noticeInfo
             break
 
-    return render(request, 'getdetails.html',
+    return render(request, 'detail.html',
                   {
                       'detail_info': detail_info
                   }
