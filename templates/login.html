@@ -1,18 +1,70 @@
-{% extends 'loginbase.html' %} {% block title %}ログイン | HighCreate{%endblock%} {% block content %}
-<div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwL" id="site-content" >
-    <div classnames="">
-        <div class="Mantel__Container-sc-90mahe-0 loqmwV">
-            <header>
-                <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
-                    ログイン</h1>
-                <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
+{% extends 'loginbase.html' %} {% block title %}ログイン | HighCreate{% endblock %} {% block content %}
+    <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwL"
+         id="site-content">
+        <div classnames="">
+            <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+                <header>
+                    <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                        ログイン</h1>
+                    <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
+                    </div>
+                </header>
+            </div>
+            <style>
+                input {
+                    border: 1px solid #ccc;
+                }
+
+                .login_1 {
+                    margin-left: 38%;
+                    margin-top: 6%;
+                }
+
+                button {
+                    width: 270px; /* 宽度 */
+                    height: 40px; /* 高度 */
+                    border-width: 0px; /* 边框宽度 */
+                    border-radius: 3px; /* 边框半径 */
+                    background: #1E90FF; /* 背景颜色 */
+                    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+                    outline: none; /* 不显示轮廓线 */
+                    font-family: Microsoft YaHei; /* 设置字体 */
+                    color: white; /* 字体颜色 */
+                    font-size: 17px; /* 字体大小 */
+                }
+
+                button:hover {
+                    background: #5599FF; /* 鼠标移入按钮范围时改变颜色 */
+                }
+            </style>
+            <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
+                <div class="login_1">
+                    <form method="post" action="/login/">
+                        <div>
+                            <label for="userName">
+                                <h1>名前</h1>
+                            </label>
+                            <div>
+                                <input type="text" name="userName" placeholder="名前" ng-model="userName">
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div>
+                            <label for="passWord">
+                                <h1>パスワード</h1>
+                            </label>
+                            <div>
+                                <input type="text" name="passWord" placeholder="パスワード" ng-model="passWord">
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <button>ログイン</button>
+                        </div>
+                    </form>
                 </div>
-            </header>
-
-        </div>
-        <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
-
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -10,9 +10,21 @@ import json
 from django.core.paginator import Paginator
 
 
-# login画面
+# login 画面登陆
+@csrf_exempt
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'GET':
+        return render(request, 'login.html')
+    if request.method == 'POST':
+        userName = request.POST['userName']
+        passWord = request.POST['passWord']
+        user_obj = models.userInfo.objects.filter(userName=userName,
+                                                  passWord=passWord
+                                                  ).first()
+        if user_obj:
+            return HttpResponseRedirect("/employinfo")
+        else:
+            return HttpResponse('用户名或密码错误')
 
 
 # 社員情報画面
