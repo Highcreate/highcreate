@@ -18,7 +18,6 @@ from django.urls import path
 from homepage import views
 from homepage import officeviews
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -38,12 +37,8 @@ urlpatterns = [
     path('login/', officeviews.login, name='login'),
     path('employinfo/', officeviews.employinfo, name='employinfo'),
     path('notice/', officeviews.notice, name='notice'),
+    path('noticeadd/', officeviews.data_add),
     path('notice/<int:userId>', officeviews.modify_detail),
-    path('detail/<int:userId>', officeviews.detail),
+    path('notices/<int:userId>', officeviews.detail),
     path('workinfo/', officeviews.workinfo, name='workinfo'),
 ]
-
-
-
-
-

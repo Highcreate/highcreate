@@ -121,6 +121,29 @@ def add(request):
     return HttpResponseRedirect("/index")
 
 
+# 詳細データ保存
+@csrf_exempt
+def data_add(request):
+    userid = request.POST['userId']
+    userdata = request.POST['userData']
+    usercategory = request.POST['userCategory']
+    usertitle = request.POST['userTitle']
+    usercontact = request.POST['userContact']
+    usertext = request.POST['userText']
+
+    noticeInfo = models.noticeInfo()
+    noticeInfo.userId = userid
+    noticeInfo.userData = userdata
+    noticeInfo.userCategory = usercategory
+    noticeInfo.userTitle = usertitle
+    noticeInfo.userContact = usercontact
+    noticeInfo.userText = usertext
+
+    noticeInfo.save()
+
+    return HttpResponseRedirect("/notice")
+
+
 def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         mylife = request.FILES['myfile']
