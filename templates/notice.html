@@ -19,6 +19,18 @@
                 table, td, th {
                     border: 1px solid black;
                 }
+
+                li {
+                    list-style: none; /* 将默认的列表符号去掉 */
+                    float: left; /* 往左浮动 */
+                    padding: 8px 16px;
+                    text-decoration: none;
+
+                }
+
+                a {
+                    text-decoration: none;
+                }
             </style>
             <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
                 <table class="table table-bordered ">
@@ -58,6 +70,7 @@
                                     <a href="?page={{ previous_page }}" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
+                                </li>
                                 </li>
                                 {% for num in page_num %}
                                     <li><a href="?page={{ num }}">{{ num }}</a></li>
