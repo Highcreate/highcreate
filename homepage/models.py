@@ -22,6 +22,7 @@ class Document(models.Model):
 # データ制定
 class noticeInfo(models.Model):
     userId = models.CharField(primary_key=True, max_length=20, verbose_name='userId')
+    userName = models.CharField(blank=True, max_length=100, verbose_name='userName')
     userData = models.CharField(blank=True, max_length=100, verbose_name='userData')
     userCategory = models.CharField(blank=True, max_length=100, verbose_name='userCategory')
     userTitle = models.CharField(blank=True, max_length=100, verbose_name='userTitle')

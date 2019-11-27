@@ -58,7 +58,7 @@ def notice(request):
     settings_name = request.session.get('userName')
 
     # session值查询
-    detail_info = models.noticeInfo.objects.filter(userId=settings_name)
+    detail_info = models.noticeInfo.objects.filter(userName=settings_name)
 
     # 设置显示多少条信息
     paginator = Paginator(detail_info, 10)
@@ -142,22 +142,20 @@ def add(request):
 # 詳細データ保存
 @csrf_exempt
 def data_add(request):
+    settings_name = request.session.get('userName')
     userid = request.POST['userId']
     userdata = request.POST['userData']
     usercategory = request.POST['userCategory']
     usertitle = request.POST['userTitle']
     usercontact = request.POST['userContact']
     usertext = request.POST['userText']
-
-    noticeInfo = models.noticeInfo()
-    noticeInfo.userId = userid
-    noticeInfo.userData = userdata
-    noticeInfo.userCategory = usercategory
-    noticeInfo.userTitle = usertitle
-    noticeInfo.userContact = usercontact
-    noticeInfo.userText = usertext
-
-    noticeInfo.save()
+    models.noticeInfo.objects.filter(userId=userid).update(userName=settings_name,
+                                                           userData=userdata,
+                                                           userCategory=usercategory,
+                                                           userTitle=usertitle,
+                                                           userContact=usercontact,
+                                                           userText=usertext
+                                                           )
 
     return HttpResponseRedirect("/notice")
 
