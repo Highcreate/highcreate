@@ -36,8 +36,10 @@
                 }
 
             </style>
+
             <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
                 <div class="login_1">
+                    {{ message }}
                     <form method="post" action="/login/">
                         <div>
                             <label for="userName">
@@ -60,7 +62,7 @@
                         <hr>
                         <tr>
                             <button type="submit" class="button">ログイン</button>
-                            <button type="reset" class="button">取消</button>
+                            <button type="button" class="button" onClick="location.href='/login'">リセット</button>
                         </tr>
                     </form>
                 </div>

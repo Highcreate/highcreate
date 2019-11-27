@@ -14,7 +14,12 @@ from django.core.paginator import Paginator
 @csrf_exempt
 def login(request):
     if request.method == 'GET':
-        return render(request, 'login.html')
+        message = ''
+        return render(request, 'login.html',
+                      {
+                          'message': message
+                      }
+                      )
     if request.method == 'POST':
         userName = request.POST['userName']
         passWord = request.POST['passWord']
@@ -22,9 +27,18 @@ def login(request):
                                                   passWord=passWord
                                                   ).first()
         if user_obj:
+
+            # 设置session
+            request.session['userName'] = userName
+
             return HttpResponseRedirect("/employinfo")
         else:
-            return HttpResponse('用户名或密码错误')
+            message = '用户名或密码错误'
+            return render(request, 'login.html',
+                          {
+                              'message': message
+                          }
+                          )
 
 
 # 社員情報画面
@@ -39,8 +53,12 @@ def notice(request):
         page = int(page)
     else:
         page = 1
-    # DB table完善后需要改
-    detail_info = models.noticeInfo.objects.all()
+
+    # 获取session
+    settings_name = request.session.get('userName')
+
+    # session值查询
+    detail_info = models.noticeInfo.objects.filter(userId=settings_name)
 
     # 设置显示多少条信息
     paginator = Paginator(detail_info, 10)
