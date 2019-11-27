@@ -14,12 +14,10 @@ from django.core.paginator import Paginator
 @csrf_exempt
 def login(request):
     if request.method == 'GET':
-        message = ''
-        return render(request, 'login.html',
-                      {
-                          'message': message
-                      }
-                      )
+        # session清空
+        request.session.flush()
+        return render(request, 'login.html')
+
     if request.method == 'POST':
         userName = request.POST['userName']
         passWord = request.POST['passWord']
@@ -30,8 +28,10 @@ def login(request):
 
             # 设置session
             request.session['userName'] = userName
-
+            # 游览器关闭后session清除
+            request.session.set_expiry(0)
             return HttpResponseRedirect("/employinfo")
+
         else:
             message = '用户名或密码错误'
             return render(request, 'login.html',
