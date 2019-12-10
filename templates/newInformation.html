@@ -1,0 +1,81 @@
+{% extends 'officebase.html' %} {% block title %}社内通知 | HighCreate{% endblock %} {% block content %}
+    <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwN"
+         id="site-content" ng-controller="ScrollController" data-ng-init="init('{{ jumpflag }}')">
+        <div classnames="">
+            <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+                <header>
+                    <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                        社内通知</h1>
+                    <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
+                    </div>
+                </header>
+            </div>
+
+            <style>
+                input {
+                    border: 1px solid #ccc;
+                }
+
+                .detail_1 {
+                    margin-left: 38%;
+                    margin-top: 6%;
+                }
+
+                button {
+                    width: 270px; /* 宽度 */
+                    height: 40px; /* 高度 */
+                    border-width: 0px; /* 边框宽度 */
+                    border-radius: 3px; /* 边框半径 */
+                    background: #1E90FF; /* 背景颜色 */
+                    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+                    outline: none; /* 不显示轮廓线 */
+                    font-family: Microsoft YaHei; /* 设置字体 */
+                    color: white; /* 字体颜色 */
+                    font-size: 17px; /* 字体大小 */
+                }
+
+                button:hover {
+                    background: #5599FF; /* 鼠标移入按钮范围时改变颜色 */
+                }
+            </style>
+
+            <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
+
+                <div class="detail_1">
+                    <form method="post" action="/informationadd/">
+                        <!-- {% csrf_token %} -->
+                        <div class="form-group">
+
+
+                            <label for="userid">id</label>
+                            <input type="text" class="form-control" name="userId" placeholder="ID"
+                                   value="{{ detail_info.userId }}">
+                            <br/>
+                            <label for="userdata">日期</label>
+                            <input type="text" class="form-control" name="userData" placeholder="日期"
+                                   value="{{ detail_info.userData }}">
+                            <br/>
+                            <label for="usercategory">カテゴリ</label>
+                            <input type="text" class="form-control" name="userCategory" placeholder="カテゴリ"
+                                   value="{{ detail_info.userCategory }}">
+                            <br/>
+                            <label for="usertitle">タイトル</label>
+                            <input type="text" class="form-control" name="userTitle"
+                                   placeholder="タイトル" value="{{ detail_info.userTitle }}">
+                            <br/>
+                            <label for="usercontact">連絡先</label>
+                            <input type="text" class="form-control" name="userContact" placeholder="連絡先"
+                                   value="{{ detail_info.userContact }}">
+                            <br/>
+                            <label for="usertext">テキスト</label>
+                            <input type="text" class="form-control" name="userText"
+                                   placeholder="テキスト" value="{{ detail_info.userTitle }}">
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary">新規</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -16,6 +16,8 @@ def login(request):
     if request.method == 'GET':
         # session清空
         request.session.flush()
+        # DB中 session清空
+        # request.session.clear_expired()
         return render(request, 'login.html')
 
     if request.method == 'POST':
@@ -25,14 +27,14 @@ def login(request):
                                                   passWord=passWord
                                                   ).first()
         if user_obj:
-
             # 设置session
             request.session['userName'] = userName
-            # 游览器关闭后session清除
+            # 游览器关闭后session过期
             request.session.set_expiry(0)
             return HttpResponseRedirect("/employinfo")
 
         else:
+            get_ip(request)
             message = '用户名或密码错误'
             return render(request, 'login.html',
                           {
@@ -56,32 +58,60 @@ def notice(request):
 
     # 获取session
     settings_name = request.session.get('userName')
-
     # session值查询
     detail_info = models.noticeInfo.objects.filter(userName=settings_name)
+    # 根据session来获取权限
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
 
-    # 设置显示多少条信息
-    paginator = Paginator(detail_info, 10)
-    page_num = paginator.num_pages
-    page_article_list = paginator.page(page)
-    if page_article_list.has_next():
-        next_page = page + 1
-    else:
-        next_page = page
-    if page_article_list.has_previous():
-        previous_page = page - 1
-    else:
-        previous_page = page
+    # 当权限等于1时 跳转管理人员页面
+    if authority == 1:
+        detail_info = models.noticeInfo.objects.all()
 
-    return render(request, 'notice.html',
-                  {
-                      'detail_info': page_article_list,
-                      'page_num': range(1, page_num + 1),
-                      'curr_page': page,
-                      'next_page': next_page,
-                      'previous_page': previous_page
-                  }
-                  )
+        # 设置显示多少条信息
+        paginator = Paginator(detail_info, 10)
+        page_num = paginator.num_pages
+        page_article_list = paginator.page(page)
+        if page_article_list.has_next():
+            next_page = page + 1
+        else:
+            next_page = page
+        if page_article_list.has_previous():
+            previous_page = page - 1
+        else:
+            previous_page = page
+        return render(request, 'notice.html',
+                      {
+                          'detail_info': page_article_list,
+                          'page_num': range(1, page_num + 1),
+                          'curr_page': page,
+                          'next_page': next_page,
+                          'previous_page': previous_page
+                      }
+                      )
+    # 跳转普通页面
+    else:
+        detail_info = models.noticeInfo.objects.filter(userName=settings_name)
+        # 设置显示多少条信息
+        paginator = Paginator(detail_info, 10)
+        page_num = paginator.num_pages
+        page_article_list = paginator.page(page)
+        if page_article_list.has_next():
+            next_page = page + 1
+        else:
+            next_page = page
+        if page_article_list.has_previous():
+            previous_page = page - 1
+        else:
+            previous_page = page
+        return render(request, 'notices.html',
+                      {
+                          'detail_info': page_article_list,
+                          'page_num': range(1, page_num + 1),
+                          'curr_page': page,
+                          'next_page': next_page,
+                          'previous_page': previous_page
+                      }
+                      )
 
 
 # 社内通知編集画面
@@ -160,6 +190,34 @@ def data_add(request):
     return HttpResponseRedirect("/notice")
 
 
+# 新規データ保存
+@csrf_exempt
+def information_add(request):
+    userid = request.POST['userId']
+    userdata = request.POST['userData']
+    usercategory = request.POST['userCategory']
+    usertitle = request.POST['userTitle']
+    usercontact = request.POST['userContact']
+    usertext = request.POST['userText']
+
+    noticeInfo = models.noticeInfo()
+    noticeInfo.userId = userid
+    noticeInfo.userData = userdata
+    noticeInfo.userCategory = usercategory
+    noticeInfo.userTitle = usertitle
+    noticeInfo.userContact = usercontact
+    noticeInfo.userText = usertext
+
+    noticeInfo.save()
+
+    return HttpResponseRedirect("/notice")
+
+
+# 新規画面
+def newinformation(request):
+    return render(request, 'newInformation.html')
+
+
 def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         mylife = request.FILES['myfile']
@@ -183,3 +241,16 @@ def model_form_upload(request):
     return render(request, 'homepage/model_form_upload.html', {
         'form': form
     })
+
+
+def get_ip(request):
+    print(request.META)
+    agent = request.META.get('HTTP_USER_AGENT')
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+
+    print("agent: " + agent)
+    print("ip: " + ip)

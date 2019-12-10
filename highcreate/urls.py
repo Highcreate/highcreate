@@ -41,4 +41,6 @@ urlpatterns = [
     path('notice/<int:userId>', officeviews.modify_detail),
     path('notices/<int:userId>', officeviews.detail),
     path('workinfo/', officeviews.workinfo, name='workinfo'),
+    path('newinformation/', officeviews.newinformation),
+    path('informationadd/', officeviews.information_add)
 ]

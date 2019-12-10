@@ -32,41 +32,31 @@
                     text-decoration: none;
                 }
             </style>
-
             <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
-                <div>
-                    <a href="/newinformation">新规</a>
-                </div>
-                <div>
-                    <table class="table table-bordered ">
-                        <tr class="text-center">
-                            <td style="width: 4%;">id</td>
-                            <td>日期</td>
-                            <td>カテゴリ</td>
-                            <td>タイトル</td>
-                            <td>連絡先</td>
-                            <td>テキスト</td>
-                            <td style="width: 4%;">编辑</td>
+                <table class="table table-bordered ">
+                   <tr class="text-center">
+                        <td style="width: 4%;">id</td>
+                        <td>日期</td>
+                        <td>カテゴリ</td>
+                        <td>タイトル</td>
+                        <td>連絡先</td>
+                        <td>テキスト</td>
+                    </tr>
+                    {% for detail_info in detail_info %}
+                      <tr>
+                            <td class="text-center">{{ detail_info.userId }}</td>
+                            {#                                等DB table完善后改#}
+                            <td>{{ detail_info.userData }}</td>
+                            <td>{{ detail_info.userCategory }}</td>
+                            <td>{{ detail_info.userTitle }}</td>
+                            <td>{{ detail_info.userContact }}</td>
+                            <td class="text-center">
+                                <a class="btn btn-default btn-xs"
+                                   href="/notices/{{ detail_info.userId }}">{{ detail_info.userText }}</a>
+                            </td>
                         </tr>
-                        {% for detail_info in detail_info %}
-                            <tr>
-                                <td class="text-center">{{ detail_info.userId }}</td>
-                                {#                                等DB table完善后改#}
-                                <td>{{ detail_info.userData }}</td>
-                                <td>{{ detail_info.userCategory }}</td>
-                                <td>{{ detail_info.userTitle }}</td>
-                                <td>{{ detail_info.userContact }}</td>
-                                <td class="text-center">
-                                    <a class="btn btn-default btn-xs"
-                                       href="/notices/{{ detail_info.userId }}">{{ detail_info.userText }}</a>
-                                </td>
-                                <td class="text-center">
-                                    <a class="btn btn-default btn-xs" href="/notice/{{ detail_info.userId }}">编辑</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+                    {% endfor %}
+                </table>
                 <div class="boby-footer">
                     <div class="col-md-5 col-md-offset-5">
                         <nav aria-label="Page navigation">
