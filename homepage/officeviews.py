@@ -43,6 +43,14 @@ def login(request):
                           )
 
 
+# logout
+def logout(request):
+    # 将session删除
+    request.session.flush()
+    # 重定向到 login界面
+    return render(request, 'login.html')
+
+
 # 社員情報画面
 def employinfo(request):
     return render(request, 'employinfo.html')

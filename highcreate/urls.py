@@ -35,6 +35,7 @@ urlpatterns = [
     path('Development/', views.development, name='development'),
     path('SendMail/', views.sendmail, name='sendmail'),
     path('login/', officeviews.login, name='login'),
+    path('logout/', officeviews.logout, name='logout'),
     path('employinfo/', officeviews.employinfo, name='employinfo'),
     path('notice/', officeviews.notice, name='notice'),
     path('noticeadd/', officeviews.data_add),
