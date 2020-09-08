@@ -183,22 +183,29 @@ def add(request):
 # 詳細データ保存
 @csrf_exempt
 def data_add(request):
-    settings_name = request.session.get('userName')
-    userid = request.POST['userId']
-    userdata = request.POST['userData']
-    usercategory = request.POST['userCategory']
-    usertitle = request.POST['userTitle']
-    usercontact = request.POST['userContact']
-    usertext = request.POST['userText']
-    models.noticeInfo.objects.filter(userId=userid).update(userName=settings_name,
-                                                           userData=userdata,
-                                                           userCategory=usercategory,
-                                                           userTitle=usertitle,
-                                                           userContact=usercontact,
-                                                           userText=usertext
-                                                           )
 
-    return HttpResponseRedirect("/notice")
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
+
+    # 管理人员才可能修改数据
+    if authority == 1:
+        settings_name = request.session.get('userName')
+        userid = request.POST['userId']
+        userdata = request.POST['userData']
+        usercategory = request.POST['userCategory']
+        usertitle = request.POST['userTitle']
+        usercontact = request.POST['userContact']
+        usertext = request.POST['userText']
+        models.noticeInfo.objects.filter(userId=userid).update(userName=settings_name,
+                                                               userData=userdata,
+                                                               userCategory=usercategory,
+                                                               userTitle=usertitle,
+                                                               userContact=usercontact,
+                                                               userText=usertext
+                                                               )
+
+        return HttpResponseRedirect("/notice")
 
 
 # 新規データ保存
