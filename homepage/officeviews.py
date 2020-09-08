@@ -211,24 +211,30 @@ def data_add(request):
 # 新規データ保存
 @csrf_exempt
 def information_add(request):
-    userid = request.POST['userId']
-    userdata = request.POST['userData']
-    usercategory = request.POST['userCategory']
-    usertitle = request.POST['userTitle']
-    usercontact = request.POST['userContact']
-    usertext = request.POST['userText']
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
 
-    noticeInfo = models.noticeInfo()
-    noticeInfo.userId = userid
-    noticeInfo.userData = userdata
-    noticeInfo.userCategory = usercategory
-    noticeInfo.userTitle = usertitle
-    noticeInfo.userContact = usercontact
-    noticeInfo.userText = usertext
+    # 管理人员才可能修改数据
+    if authority == 1:
+        userid = request.POST['userId']
+        userdata = request.POST['userData']
+        usercategory = request.POST['userCategory']
+        usertitle = request.POST['userTitle']
+        usercontact = request.POST['userContact']
+        usertext = request.POST['userText']
 
-    noticeInfo.save()
+        noticeInfo = models.noticeInfo()
+        noticeInfo.userId = userid
+        noticeInfo.userData = userdata
+        noticeInfo.userCategory = usercategory
+        noticeInfo.userTitle = usertitle
+        noticeInfo.userContact = usercontact
+        noticeInfo.userText = usertext
 
-    return HttpResponseRedirect("/notice")
+        noticeInfo.save()
+
+        return HttpResponseRedirect("/notice")
 
 
 # 新規画面
