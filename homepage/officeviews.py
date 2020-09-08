@@ -98,7 +98,10 @@ def notice(request):
                       )
     # 跳转普通页面
     else:
-        detail_info = models.noticeInfo.objects.filter(userName=settings_name)
+        # 按名字查询
+        # detail_info = models.noticeInfo.objects.filter(userName=settings_name)
+        # 查询出所有
+        detail_info = models.noticeInfo.objects.all()
         # 设置显示多少条信息
         paginator = Paginator(detail_info, 10)
         page_num = paginator.num_pages
