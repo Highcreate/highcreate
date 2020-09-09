@@ -127,18 +127,30 @@ def notice(request):
 
 # 社内通知編集画面
 def modify_detail(request, userId):
-    noticeInfos = models.noticeInfo.objects.all()
-    detail_info = None
-    for noticeInfo in noticeInfos:
-        if noticeInfo.userId == userId:
-            detail_info = noticeInfo
-            break
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
 
-    return render(request, 'modify_detail.html',
-                  {
-                      'detail_info': detail_info
-                  }
-                  )
+    # 管理人员才可能修改数据
+    if authority == 1:
+        noticeInfos = models.noticeInfo.objects.all()
+        detail_info = None
+        for noticeInfo in noticeInfos:
+            if noticeInfo.userId == userId:
+                detail_info = noticeInfo
+                break
+
+        return render(request, 'modify_detail.html',
+                      {
+                          'detail_info': detail_info
+                      }
+                      )
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
 
 
 # 社内通知详细画面
@@ -183,7 +195,6 @@ def add(request):
 # 詳細データ保存
 @csrf_exempt
 def data_add(request):
-
     # 根据session来获取权限
     settings_name = request.session.get('userName')
     authority = models.userInfo.objects.get(userName=settings_name).Authority
@@ -206,6 +217,12 @@ def data_add(request):
                                                                )
 
         return HttpResponseRedirect("/notice")
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
 
 
 # 新規データ保存
@@ -235,11 +252,29 @@ def information_add(request):
         noticeInfo.save()
 
         return HttpResponseRedirect("/notice")
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
 
 
 # 新規画面
 def newinformation(request):
-    return render(request, 'newInformation.html')
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
+
+    # 管理人员才可能修改数据
+    if authority == 1:
+        return render(request, 'newInformation.html')
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
 
 
 def simple_upload(request):
