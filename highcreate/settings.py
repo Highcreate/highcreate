@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cgetwk!!a#l0lvv+b*co0&eicz-o@2p*)+y++_gg_%&o3sk(qd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #ALLOWED_HOSTS = ['www.highcreate.co.jp']
 ALLOWED_HOSTS = ['*']
