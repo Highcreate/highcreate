@@ -18,6 +18,7 @@ from django.urls import path
 from homepage import views
 from homepage import officeviews
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -43,5 +44,7 @@ urlpatterns = [
     path('notices/<int:userId>', officeviews.detail),
     path('workinfo/', officeviews.workinfo, name='workinfo'),
     path('newinformation/', officeviews.newinformation),
-    path('informationadd/', officeviews.information_add)
+    path('informationadd/', officeviews.information_add),
+    path('registerMember/', officeviews.registerMember),
+    path('register/', officeviews.register)
 ]

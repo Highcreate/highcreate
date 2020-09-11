@@ -3,7 +3,7 @@ from django.db import models
 
 
 # Create your models here.
-class   userInfo(models.Model):
+class userInfo(models.Model):
     userId = models.CharField(primary_key=True, max_length=20, verbose_name='userId')
     userName = models.CharField(blank=True, max_length=20, verbose_name='userName')
     passWord = models.CharField(blank=True, max_length=20, verbose_name='passWord')

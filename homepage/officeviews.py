@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import hashlib
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
@@ -20,11 +22,17 @@ def login(request):
         # request.session.clear_expired()
         return render(request, 'login.html')
 
+    error_msg = ''
     if request.method == 'POST':
         userName = request.POST['userName']
         passWord = request.POST['passWord']
+
+        md5 = hashlib.md5()
+        md5.update(passWord.encode())
+        password_md5 = md5.hexdigest()
+
         user_obj = models.userInfo.objects.filter(userName=userName,
-                                                  passWord=passWord
+                                                  passWord=password_md5
                                                   ).first()
         if user_obj:
             # 设置session
@@ -35,10 +43,10 @@ def login(request):
 
         else:
             get_ip(request)
-            message = '用户名或密码错误'
+            error_msg = '用户名或密码错误'
             return render(request, 'login.html',
                           {
-                              'message': message
+                              'error_msg': error_msg
                           }
                           )
 
@@ -269,6 +277,59 @@ def newinformation(request):
     # 管理人员才可能修改数据
     if authority == 1:
         return render(request, 'newInformation.html')
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
+
+
+# ユーザー登録画面
+def registerMember(request):
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
+
+    # 管理人员才可能修改数据
+    if authority == 1:
+        return render(request, 'registerMember.html')
+    else:
+        message = '无权限'
+        return render(request, '404.html',
+                      {
+                          'message': message
+                      })
+
+
+# ユーザー登録
+@csrf_exempt
+def register(request):
+    # 根据session来获取权限
+    settings_name = request.session.get('userName')
+    authority = models.userInfo.objects.get(userName=settings_name).Authority
+
+    # 管理人员才可能修改数据
+    if authority == 1:
+        userid = request.POST['userId']
+        username = request.POST['userName']
+        password = request.POST['passWord']
+        authority = request.POST['Authority']
+
+        md5 = hashlib.md5()
+        md5.update(password.encode())
+        password_md5 = md5.hexdigest()
+
+        userinfo = models.userInfo()
+
+        userinfo.userId = userid
+        userinfo.userName = username
+        userinfo.passWord = password_md5
+        userinfo.Authority = authority
+
+        userinfo.save()
+
+        return HttpResponseRedirect("/login")
     else:
         message = '无权限'
         return render(request, '404.html',

@@ -1,0 +1,77 @@
+{% extends 'officebase.html' %} {% block title %}社内通知 | HighCreate{% endblock %} {% block content %}
+    <div class="p-3 bg-center bg-top bg-white mx-auto relative xl:p-0 PageWrap__ContentContainer-kkdcvd-0 dzVwN"
+         id="site-content" ng-controller="ScrollController" data-ng-init="init('{{ jumpflag }}')">
+        <div classnames="">
+            <div class="Mantel__Container-sc-90mahe-0 loqmwV">
+                <header>
+                    <h1 class=" font-sans text-charcoal tracking-wide uppercase text-center pb-2 font-black uppercase md:text-3xl text-3xl">
+                        ユーザー登録</h1>
+                    <div class=" h-px bg-magenta mx-auto" style="width: 100px;">
+                    </div>
+                </header>
+            </div>
+
+            <style>
+                input {
+                    border: 1px solid #ccc;
+                }
+
+                .detail_1 {
+                    margin-left: 38%;
+                    margin-top: 6%;
+                }
+
+                button {
+                    width: 270px; /* 宽度 */
+                    height: 40px; /* 高度 */
+                    border-width: 0px; /* 边框宽度 */
+                    border-radius: 3px; /* 边框半径 */
+                    background: #1E90FF; /* 背景颜色 */
+                    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+                    outline: none; /* 不显示轮廓线 */
+                    font-family: Microsoft YaHei; /* 设置字体 */
+                    color: white; /* 字体颜色 */
+                    font-size: 17px; /* 字体大小 */
+                }
+
+                button:hover {
+                    background: #5599FF; /* 鼠标移入按钮范围时改变颜色 */
+                }
+            </style>
+
+            <div class="Technology__SectionContainer-sc-1uzfb71-0 dnLgNL">
+
+                <div class="detail_1">
+                    <form method="post" action="/register/">
+                        <!-- {% csrf_token %} -->
+                        <div class="form-group">
+                            <label for="userid">id</label>
+                            <input type="text" class="form-control" name="userId" placeholder="ID"
+                                   value="{{ detail_info.userId }}">
+                            <br/>
+
+                            <label for="username">name</label>
+                            <input type="text" class="form-control" name="userName" placeholder="NAME"
+                                   value="{{ detail_info.userName }}">
+                            <br/>
+
+                            <label for="password">password</label>
+                            <input type="text" class="form-control" name="passWord" placeholder="passWord"
+                                   value="{{ detail_info.passWord }}">
+                            <br/>
+
+                            <label for="authority">authority</label>
+                            <input type="text" class="form-control" name="Authority" placeholder="authority"
+                                   value="{{ detail_info.Authority }}">
+                            <br/>
+
+                            </iv>
+                            <hr>
+                            <button class="btn btn-primary">新規</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
