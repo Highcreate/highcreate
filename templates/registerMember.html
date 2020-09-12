@@ -45,24 +45,26 @@
                     <form method="post" action="/register/">
                         <!-- {% csrf_token %} -->
                         <div class="form-group">
+                            {{ notFiledName1 }}{{ notFiledName2 }}{{ notFiledName3 }}{{ notFiledName4 }}{{ message }}
                             <label for="userid">id</label>
-                            <input type="text" class="form-control" name="userId" placeholder="ID"
-                                   value="{{ detail_info.userId }}">
+                            <input type="text" class="form-control" name="userId" placeholder="ID">
                             <br/>
 
-                            <label for="username">name</label>
-                            <input type="text" class="form-control" name="userName" placeholder="NAME"
-                                   value="{{ detail_info.userName }}">
+                            <label for="username">名前</label>
+                            <input type="text" class="form-control" name="userName" placeholder="名前"
+                                   ng-model="userName">
                             <br/>
 
                             <label for="password">password</label>
-                            <input type="text" class="form-control" name="passWord" placeholder="passWord"
-                                   value="{{ detail_info.passWord }}">
+                            <input type="text" class="form-control" name="passWord" placeholder="passWord">
+                            <br/>
+
+                            <label for="password2">password2</label>
+                            <input type="text" class="form-control" name="passWord2" placeholder="passWord2">
                             <br/>
 
                             <label for="authority">authority</label>
-                            <input type="text" class="form-control" name="Authority" placeholder="authority"
-                                   value="{{ detail_info.Authority }}">
+                            <input type="text" class="form-control" name="Authority" placeholder="authority">
                             <br/>
 
                             </iv>

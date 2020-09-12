@@ -314,22 +314,62 @@ def register(request):
         userid = request.POST['userId']
         username = request.POST['userName']
         password = request.POST['passWord']
+        password2 = request.POST['passWord2']
         authority = request.POST['Authority']
 
-        md5 = hashlib.md5()
-        md5.update(password.encode())
-        password_md5 = md5.hexdigest()
+        if username is '' or password is '' or password2 is '' or authority is '':
+            message = '不能为空'
+            notFiledName1 = ''
+            notFiledName2 = ''
+            notFiledName3 = ''
+            notFiledName4 = ''
+            if username is '':
+                notFiledName1 = 'username '
+            if password is '':
+                notFiledName2 = 'password '
+            if password2 is '':
+                notFiledName3 = 'password2 '
+            if authority is '':
+                notFiledName4 = 'authority '
 
-        userinfo = models.userInfo()
+            return render(request, 'registerMember.html',
+                          {
+                              'notFiledName1': notFiledName1,
+                              'notFiledName2': notFiledName2,
+                              'notFiledName3': notFiledName3,
+                              'notFiledName4': notFiledName4,
+                              'message': message
+                          })
 
-        userinfo.userId = userid
-        userinfo.userName = username
-        userinfo.passWord = password_md5
-        userinfo.Authority = authority
+        # 两遍密码是否一致
+        if password == password2:
+            md5 = hashlib.md5()
+            md5.update(password.encode())
+            password_md5 = md5.hexdigest()
 
-        userinfo.save()
+            # 判断用户名是否已经被注册
+            user_obj = models.userInfo.objects.filter(userName=username).first()
+            if user_obj:
+                message = '用户名已被注册'
+                return render(request, 'registerMember.html',
+                              {
+                                  'message': message
+                              })
+            else:
+                userinfo = models.userInfo()
+                userinfo.userId = userid
+                userinfo.userName = username
+                userinfo.passWord = password_md5
+                userinfo.Authority = authority
+                userinfo.save()
 
-        return HttpResponseRedirect("/login")
+                return HttpResponseRedirect("/login")
+        else:
+            message = '密码不一致'
+            return render(request, 'registerMember.html',
+                          {
+                              'message': message
+                          })
     else:
         message = '无权限'
         return render(request, '404.html',
